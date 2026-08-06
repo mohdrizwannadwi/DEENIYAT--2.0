@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,46 +7,228 @@
 <title>Hadith - DEENIYAT 2.0</title>
 
 <style>
-
-body {
-    font-family: Arial, sans-serif;
-    background: #0b5d3b;
-    color: white;
-    margin: 0;
-    padding: 20px;
+body{
+    font-family:Arial,sans-serif;
+    background:#0b5d3b;
+    color:white;
+    margin:0;
+    padding:20px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
+h1{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.subtitle {
-    text-align: center;
-    margin-bottom: 25px;
+.search{
+    width:100%;
+    padding:14px;
+    box-sizing:border-box;
+    border:0;
+    border-radius:10px;
+    font-size:17px;
+    margin-bottom:20px;
 }
 
-.hadith {
-    background: white;
-    color: #222;
-    max-width: 600px;
-    margin: 15px auto;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+.hadith{
+    background:white;
+    color:#222;
+    padding:18px;
+    margin:15px 0;
+    border-radius:12px;
+    text-align:right;
 }
 
-.arabic {
-    font-size: 23px;
-    line-height: 2;
-    margin-bottom: 15px;
+.hadith h3{
+    color:#0b5d3b;
+    margin-top:0;
 }
 
-.urdu {
-    font-size: 18px;
-    line-height: 1.8;
+.ref{
+    color:#666;
+    font-size:14px;
+    margin-top:12px;
 }
 
+.back{
+    display:block;
+    background:white;
+    color:#0b5d3b;
+    padding:12px;
+    text-align:center;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📚 احادیثِ رسول ﷺ</h1>
+
+<a class="back" href="index.html">🏠 واپس Home</a>
+
+<input
+class="search"
+type="text"
+id="search"
+placeholder="🔎 حدیث تلاش کریں..."
+onkeyup="searchHadith()"
+>
+
+<div id="hadithList">
+
+<div class="hadith">
+<h3>حدیث 1 — نیت</h3>
+<p>اعمال کا دار و مدار نیتوں پر ہے، اور ہر شخص کو وہی ملے گا جس کی اس نے نیت کی۔</p>
+<div class="ref">حوالہ: صحیح بخاری 1، صحیح مسلم 1907</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 2 — اسلام</h3>
+<p>اسلام کی بنیاد پانچ چیزوں پر ہے: اللہ کی وحدانیت اور محمد ﷺ کی رسالت کی گواہی، نماز قائم کرنا، زکوٰۃ دینا، رمضان کے روزے رکھنا اور حج کرنا۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 3 — اچھی بات</h3>
+<p>جو شخص اللہ اور آخرت کے دن پر ایمان رکھتا ہے، اسے چاہیے کہ اچھی بات کہے یا خاموش رہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم — نووی 40، حدیث 15</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 4 — غصہ</h3>
+<p>ایک شخص نے نبی ﷺ سے نصیحت طلب کی تو آپ ﷺ نے فرمایا: غصہ نہ کرو۔</p>
+<div class="ref">حوالہ: نووی 40، حدیث 16</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 5 — پڑوسی</h3>
+<p>جو اللہ اور آخرت کے دن پر ایمان رکھتا ہے اسے چاہیے کہ اپنے پڑوسی کی عزت کرے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 6 — والدین</h3>
+<p>اللہ تعالیٰ کو سب سے محبوب اعمال میں نماز کو اس کے وقت پر ادا کرنا اور والدین کے ساتھ حسن سلوک کرنا ہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم — ریاض الصالحین 312</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 7 — نیکی</h3>
+<p>جو شخص کسی نیکی کا ارادہ کرے اور اسے نہ کرے، اس کے لیے بھی ایک مکمل نیکی لکھی جاتی ہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم — نووی 40، حدیث 37</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 8 — نماز</h3>
+<p>نماز کو اس کے مقررہ وقت پر ادا کرنا اللہ تعالیٰ کے نزدیک محبوب اعمال میں سے ہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 9 — روزہ</h3>
+<p>روزہ ایک ڈھال ہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 10 — صدقہ</h3>
+<p>صدقہ گناہوں کو ایسے بجھا دیتا ہے جیسے پانی آگ کو بجھا دیتا ہے۔</p>
+<div class="ref">حوالہ: ریاض الصالحین 1522</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 11 — رشتہ داری</h3>
+<p>حقیقی صلہ رحمی کرنے والا وہ نہیں جو بدلے میں صلہ رحمی کرے، بلکہ وہ ہے جو رشتہ توڑے جانے کے باوجود اسے جوڑے رکھے۔</p>
+<div class="ref">حوالہ: صحیح بخاری — ریاض الصالحین 322</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 12 — والدین سے حسن سلوک</h3>
+<p>والدین کے ساتھ اچھا برتاؤ کرتے رہو۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 13 — علم</h3>
+<p>جو شخص علم حاصل کرنے کے راستے پر چلتا ہے، اللہ اس کے لیے جنت کا راستہ آسان فرما دیتا ہے۔</p>
+<div class="ref">حوالہ: صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 14 — مسلمان بھائی</h3>
+<p>تم میں سے کوئی شخص اس وقت تک کامل ایمان والا نہیں ہوتا جب تک وہ اپنے بھائی کے لیے وہی پسند نہ کرے جو اپنے لیے پسند کرتا ہے۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 15 — رحم</h3>
+<p>رحم کرنے والوں پر رحمان رحم فرماتا ہے۔</p>
+<div class="ref">حوالہ: جامع ترمذی</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 16 — مسکراہٹ</h3>
+<p>اپنے مسلمان بھائی کے سامنے تمہارا مسکرانا بھی صدقہ ہے۔</p>
+<div class="ref">حوالہ: جامع ترمذی</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 17 — صفائی</h3>
+<p>پاکیزگی نصف ایمان ہے۔</p>
+<div class="ref">حوالہ: صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 18 — آسانی</h3>
+<p>آسانی پیدا کرو اور سختی نہ کرو، خوشخبری دو اور نفرت نہ دلاؤ۔</p>
+<div class="ref">حوالہ: صحیح بخاری، صحیح مسلم</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 19 — اچھا اخلاق</h3>
+<p>قیامت کے دن مومن کے میزان میں اچھے اخلاق سے زیادہ بھاری کوئی چیز نہیں ہوگی۔</p>
+<div class="ref">حوالہ: جامع ترمذی</div>
+</div>
+
+<div class="hadith">
+<h3>حدیث 20 — اللہ پر بھروسہ</h3>
+<p>اللہ سے مدد مانگو اور اس سے عاجزی اختیار کرو۔</p>
+<div class="ref">حوالہ: نووی 40، حدیث 19</div>
+</div>
+
+</div>
+
+<script>
+function searchHadith(){
+
+let input =
+document.getElementById("search").value.toLowerCase();
+
+let hadiths =
+document.querySelectorAll(".hadith");
+
+hadiths.forEach(function(hadith){
+
+let text =
+hadith.innerText.toLowerCase();
+
+if(text.includes(input)){
+hadith.style.display="block";
+}else{
+hadith.style.display="none";
+}
+
+});
+
+}
+</script>
+
+</body>
+</html>
 .reference {
     color: #0b5d3b;
     font-weight: bold;
