@@ -1,37 +1,182 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quran</title>
+<title>Holy Quran - DEENIYAT 2.0</title>
+
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#0b5d3b;
-color:white;
-text-align:center;
-padding:20px;
+body {
+    font-family: Arial, sans-serif;
+    background: #0b5d3b;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
-a{
-display:block;
-background:white;
-color:#0b5d3b;
-padding:15px;
-margin:10px;
-border-radius:10px;
-text-decoration:none;
-font-size:20px;
-font-weight:bold;
+
+h1 {
+    margin-bottom: 25px;
+}
+
+.surah {
+    display: block;
+    background: white;
+    color: #0b5d3b;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 500px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.surah:hover {
+    background: #ffd700;
 }
 </style>
 </head>
+
 <body>
 
 <h1>📖 Holy Quran</h1>
 
-<a href="https://quran.com/1">سورة الفاتحة</a>
-<a href="https://quran.com/2">سورة البقرة</a>
-<a href="https://quran.com/3">سورة آل عمران</a>
-<a href="https://quran.com/4">سورة النساء</a>
+<div id="surahList"></div>
+
+<script>
+
+const surahs = [
+"الفاتحة",
+"البقرة",
+"آل عمران",
+"النساء",
+"المائدة",
+"الأنعام",
+"الأعراف",
+"الأنفال",
+"التوبة",
+"يونس",
+"هود",
+"يوسف",
+"الرعد",
+"إبراهيم",
+"الحجر",
+"النحل",
+"الإسراء",
+"الكهف",
+"مريم",
+"طه",
+"الأنبياء",
+"الحج",
+"المؤمنون",
+"النور",
+"الفرقان",
+"الشعراء",
+"النمل",
+"القصص",
+"العنكبوت",
+"الروم",
+"لقمان",
+"السجدة",
+"الأحزاب",
+"سبأ",
+"فاطر",
+"يس",
+"الصافات",
+"ص",
+"الزمر",
+"غافر",
+"فصلت",
+"الشورى",
+"الزخرف",
+"الدخان",
+"الجاثية",
+"الأحقاف",
+"محمد",
+"الفتح",
+"الحجرات",
+"ق",
+"الذاريات",
+"الطور",
+"النجم",
+"القمر",
+"الرحمن",
+"الواقعة",
+"الحديد",
+"المجادلة",
+"الحشر",
+"الممتحنة",
+"الصف",
+"الجمعة",
+"المنافقون",
+"التغابن",
+"الطلاق",
+"التحريم",
+"الملك",
+"القلم",
+"الحاقة",
+"المعارج",
+"نوح",
+"الجن",
+"المزمل",
+"المدثر",
+"القيامة",
+"الإنسان",
+"المرسلات",
+"النبأ",
+"النازعات",
+"عبس",
+"التكوير",
+"الانفطار",
+"المطففين",
+"الانشقاق",
+"البروج",
+"الطارق",
+"الأعلى",
+"الغاشية",
+"الفجر",
+"البلد",
+"الشمس",
+"الليل",
+"الضحى",
+"الشرح",
+"التين",
+"العلق",
+"القدر",
+"البينة",
+"الزلزلة",
+"العاديات",
+"القارعة",
+"التكاثر",
+"العصر",
+"الهمزة",
+"الفيل",
+"قريش",
+"الماعون",
+"الكوثر",
+"الكافرون",
+"النصر",
+"المسد",
+"الإخلاص",
+"الفلق",
+"الناس"
+];
+
+const list = document.getElementById("surahList");
+
+surahs.forEach((name, index) => {
+    const number = index + 1;
+
+    const link = document.createElement("a");
+    link.className = "surah";
+    link.href = "https://quran.com/" + number;
+    link.target = "_blank";
+    link.innerHTML = "📖 " + number + " — سورة " + name;
+
+    list.appendChild(link);
+});
+
+</script>
+
 </body>
-</html>
+</html></html>
