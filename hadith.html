@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hadith - DEENIYAT 2.0</title>
+<title>احادیث رسول ﷺ - DEENIYAT 2.0</title>
 
 <style>
 body{
@@ -17,45 +18,158 @@ body{
 
 h1{
     text-align:center;
-    margin-bottom:20px;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    color:white;
+    margin:20px;
+    text-decoration:none;
 }
 
 .search{
     width:100%;
-    padding:14px;
+    padding:15px;
     box-sizing:border-box;
-    border:0;
     border-radius:10px;
-    font-size:17px;
+    border:none;
+    font-size:18px;
     margin-bottom:20px;
 }
 
 .hadith{
     background:white;
     color:#222;
-    padding:18px;
-    margin:15px 0;
-    border-radius:12px;
-    text-align:right;
+    padding:20px;
+    margin:20px 0;
+    border-radius:15px;
+    line-height:2;
 }
 
-.hadith h3{
+.hadith h2{
     color:#0b5d3b;
-    margin-top:0;
+}
+
+.arabic{
+    font-size:24px;
+    text-align:right;
+    line-height:2.2;
+}
+
+.urdu{
+    font-size:19px;
 }
 
 .ref{
-    color:#666;
-    font-size:14px;
-    margin-top:12px;
+    background:#eee;
+    padding:10px;
+    border-radius:8px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📚 احادیث رسول ﷺ</h1>
+
+<a class="back" href="index.html">🏠 واپس Home</a>
+
+<input
+class="search"
+type="text"
+id="search"
+placeholder="🔎 حدیث تلاش کریں..."
+onkeyup="searchHadith()"
+>
+
+<div id="hadithList">
+
+<!-- حدیث 1 -->
+
+<div class="hadith">
+
+<h2>حدیث 1 — نیت</h2>
+
+<p class="arabic">
+إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ
+</p>
+
+<p class="urdu">
+حضرت عمر بن خطاب رضی اللہ عنہ سے روایت ہے کہ رسول اللہ ﷺ نے فرمایا:
+اعمال کا دار و مدار نیتوں پر ہے اور ہر شخص کو وہی ملے گا جس کی اس نے نیت کی۔ پس جس کی ہجرت دنیا حاصل کرنے کے لیے ہو یا کسی عورت سے نکاح کرنے کے لیے ہو، تو اس کی ہجرت اسی چیز کے لیے ہوگی جس کے لیے اس نے ہجرت کی۔
+</p>
+
+<p class="ref">
+راوی: حضرت عمر بن خطاب رضی اللہ عنہ<br>
+حوالہ: صحیح بخاری، حدیث 1
+</p>
+
+</div>
+
+
+<!-- حدیث 2 -->
+
+<div class="hadith">
+
+<h2>حدیث 2 — اسلام، ایمان اور احسان</h2>
+
+<p class="arabic">
+أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ
+</p>
+
+<p class="urdu">
+حضرت عمر رضی اللہ عنہ سے روایت ہے کہ ایک شخص رسول اللہ ﷺ کے پاس آیا اور اسلام، ایمان اور احسان کے بارے میں سوال کیا۔
+
+رسول اللہ ﷺ نے فرمایا کہ اسلام یہ ہے کہ تم گواہی دو کہ اللہ کے سوا کوئی معبود نہیں اور محمد ﷺ اللہ کے رسول ہیں، نماز قائم کرو، زکوٰۃ دو، رمضان کے روزے رکھو اور اگر استطاعت ہو تو بیت اللہ کا حج کرو۔
+
+ایمان یہ ہے کہ تم اللہ، اس کے فرشتوں، اس کی کتابوں، اس کے رسولوں، آخرت کے دن اور اچھی بری تقدیر پر ایمان لاؤ۔
+
+احسان یہ ہے کہ تم اللہ کی عبادت اس طرح کرو گویا تم اسے دیکھ رہے ہو، اور اگر تم اسے نہیں دیکھتے تو وہ تمہیں دیکھ رہا ہے۔
+
+آخر میں رسول اللہ ﷺ نے فرمایا کہ یہ جبرائیل علیہ السلام تھے، جو تمہیں تمہارا دین سکھانے آئے تھے۔
+</p>
+
+<p class="ref">
+راوی: حضرت عمر بن خطاب رضی اللہ عنہ<br>
+حوالہ: صحیح مسلم، حدیث 8a
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function searchHadith(){
+
+    let input =
+    document.getElementById("search").value.toLowerCase();
+
+    let hadiths =
+    document.querySelectorAll(".hadith");
+
+    hadiths.forEach(function(hadith){
+
+        let text =
+        hadith.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            hadith.style.display="block";
+        }
+        else{
+            hadith.style.display="none";
+        }
+
+    });
+
 }
 
-.back{
-    display:block;
-    background:white;
-    color:#0b5d3b;
-    padding:12px;
-    text-align:center;
+</script>
+
+</body>
+</html>    text-align:center;
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
