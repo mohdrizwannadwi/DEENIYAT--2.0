@@ -7,118 +7,114 @@
 
 <title>احادیث رسول ﷺ - DEENIYAT 2.0</title>
 
-<script src="./hadith-data.js?v=101"></script>
+<script src="./hadith-data.js"></script>
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 15px;
-    font-family: Arial, sans-serif;
-    background: #0b5d3b;
-    color: white;
+  margin: 0;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background: #0b5d3b;
+  color: white;
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
+  max-width: 800px;
+  margin: auto;
 }
 
 h1 {
-    text-align: center;
-    margin: 15px 0 5px;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
+  margin: 15px 0;
 }
 
 .subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 17px;
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 25px;
 }
 
 #search {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 12px;
-    font-size: 18px;
-    margin-bottom: 15px;
-    outline: none;
-    direction: rtl;
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 15px;
+  text-align: right;
 }
 
 #status {
-    text-align: center;
-    margin: 15px 0;
-    font-size: 17px;
+  text-align: center;
+  font-size: 17px;
+  margin: 15px 0;
 }
 
 .hadith {
-    background: white;
-    color: #222;
-    padding: 20px;
-    margin-bottom: 18px;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  background: white;
+  color: #222;
+  padding: 22px;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .hadith h2 {
-    margin-top: 0;
-    color: #0b5d3b;
-    font-size: 21px;
-}
-
-.narrator {
-    background: #e8f5ef;
-    color: #075b3a;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 12px 0;
-    font-size: 17px;
-    font-weight: bold;
+  color: #0b5d3b;
+  font-size: 21px;
+  margin-top: 0;
 }
 
 .arabic {
-    font-size: 24px;
-    line-height: 2.2;
-    text-align: right;
-    margin: 15px 0;
+  font-size: 24px;
+  line-height: 2.2;
+  margin: 18px 0;
+  text-align: right;
 }
 
 .urdu {
-    font-size: 19px;
-    line-height: 2;
-    margin: 15px 0;
+  font-size: 19px;
+  line-height: 2;
+  margin: 18px 0;
+}
+
+.narrator {
+  font-size: 16px;
+  color: #555;
+  margin: 12px 0;
 }
 
 .reference {
-    background: #f1f1f1;
-    color: #333;
-    padding: 11px;
-    border-radius: 8px;
-    font-size: 15px;
-}
-
-.no-result {
-    background: white;
-    color: #222;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 18px;
+  background: #eeeeee;
+  color: #333;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 .error {
-    background: white;
-    color: #b00020;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 2;
+  background: white;
+  color: #b00020;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.no-result {
+  background: white;
+  color: #222;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 18px;
 }
 </style>
 
@@ -135,9 +131,9 @@ DEENIYAT 2.0 — احادیث مبارکہ
 </div>
 
 <input
-    type="text"
-    id="search"
-    placeholder="🔍 حدیث تلاش کریں..."
+  type="text"
+  id="search"
+  placeholder="🔍 حدیث تلاش کریں..."
 >
 
 <div id="status">
@@ -150,160 +146,196 @@ DEENIYAT 2.0 — احادیث مبارکہ
 
 <script>
 
+function getData() {
+
+  if (Array.isArray(window.hadithData)) {
+    return window.hadithData;
+  }
+
+  if (Array.isArray(window.HADITH_DATA)) {
+    return window.HADITH_DATA;
+  }
+
+  return [];
+}
+
+
 function showHadith(list) {
 
-    const container = document.getElementById("hadithList");
+  const container =
+    document.getElementById("hadithList");
 
-    container.innerHTML = "";
+  const status =
+    document.getElementById("status");
 
-    if (!Array.isArray(list) || list.length === 0) {
+  container.innerHTML = "";
 
-        container.innerHTML =
-        '<div class="no-result">کوئی حدیث نہیں ملی۔</div>';
+  if (!Array.isArray(list) || list.length === 0) {
 
-        document.getElementById("status").innerText =
-        "0 احادیث";
+    status.innerText = "0 احادیث";
 
-        return;
-    }
+    container.innerHTML = `
+      <div class="error">
 
-    list.forEach(function(hadith) {
+        ❌ حدیث کا ڈیٹا لوڈ نہیں ہوا۔
 
-        const div = document.createElement("div");
+        <br><br>
 
-        div.className = "hadith";
+        براہ کرم چیک کریں:
 
-        div.innerHTML = `
+        <br><br>
 
-            <h2>
-                ${hadith.title || "حدیث"}
-            </h2>
+        <b>hadith-data.js</b>
 
-            ${
-                hadith.narrator
-                ? `<div class="narrator">
-                    ${hadith.narrator}
-                   </div>`
-                : ""
-            }
+        <br><br>
 
-            <div class="arabic">
-                ${hadith.arabic || ""}
-            </div>
+        یہ فائل <b>hadith.html</b> کے اسی folder میں ہونی چاہیے۔
 
-            <div class="urdu">
-                ${hadith.urdu || ""}
-            </div>
+      </div>
+    `;
 
-            <div class="reference">
-                حوالہ: ${hadith.reference || ""}
-            </div>
+    return;
+  }
 
-        `;
-
-        container.appendChild(div);
-
-    });
-
-    document.getElementById("status").innerText =
+  status.innerText =
     list.length + " احادیث";
+
+  list.forEach(function(hadith) {
+
+    const div =
+      document.createElement("div");
+
+    div.className = "hadith";
+
+    div.innerHTML = `
+
+      <h2>
+        ${hadith.title || "حدیث"}
+      </h2>
+
+      ${
+        hadith.narrator
+        ? `<div class="narrator">
+             راوی: ${hadith.narrator}
+           </div>`
+        : ""
+      }
+
+      <div class="arabic">
+        ${hadith.arabic || ""}
+      </div>
+
+      <div class="urdu">
+        ${hadith.urdu || ""}
+      </div>
+
+      <div class="reference">
+        حوالہ:
+        ${hadith.reference || ""}
+      </div>
+
+    `;
+
+    container.appendChild(div);
+
+  });
 
 }
 
 
 function searchHadith() {
 
-    const searchBox =
-        document.getElementById("search");
+  const text =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
 
-    const text =
-        searchBox.value.trim().toLowerCase();
+  const data = getData();
 
-    if (!text) {
+  if (!text) {
 
-        showHadith(window.hadithData);
+    showHadith(data);
 
-        return;
-    }
+    return;
+  }
 
-    const results =
-        window.hadithData.filter(function(hadith) {
+  const results =
+    data.filter(function(hadith) {
 
-        return (
+      return (
 
-            (hadith.title || "")
-                .toLowerCase()
-                .includes(text)
+        String(hadith.title || "")
+          .toLowerCase()
+          .includes(text)
 
-            ||
+        ||
 
-            (hadith.narrator || "")
-                .toLowerCase()
-                .includes(text)
+        String(hadith.arabic || "")
+          .toLowerCase()
+          .includes(text)
 
-            ||
+        ||
 
-            (hadith.arabic || "")
-                .toLowerCase()
-                .includes(text)
+        String(hadith.urdu || "")
+          .toLowerCase()
+          .includes(text)
 
-            ||
+        ||
 
-            (hadith.urdu || "")
-                .toLowerCase()
-                .includes(text)
+        String(hadith.reference || "")
+          .toLowerCase()
+          .includes(text)
 
-            ||
+        ||
 
-            (hadith.reference || "")
-                .toLowerCase()
-                .includes(text)
+        String(hadith.narrator || "")
+          .toLowerCase()
+          .includes(text)
 
-        );
+      );
 
     });
 
-    showHadith(results);
+  if (results.length === 0) {
+
+    document.getElementById("status")
+      .innerText = "0 احادیث";
+
+    document.getElementById("hadithList")
+      .innerHTML = `
+        <div class="no-result">
+          کوئی حدیث نہیں ملی۔
+        </div>
+      `;
+
+    return;
+  }
+
+  showHadith(results);
 
 }
 
 
 document
-.getElementById("search")
-.addEventListener("input", searchHadith);
+  .getElementById("search")
+  .addEventListener(
+    "input",
+    searchHadith
+  );
 
 
-if (Array.isArray(window.hadithData)) {
+window.addEventListener(
+  "load",
+  function() {
 
-    showHadith(window.hadithData);
+    const data = getData();
 
-} else {
+    showHadith(data);
 
-    document.getElementById("status").innerText = "";
-
-    document.getElementById("hadithList").innerHTML = `
-
-        <div class="error">
-
-            ❌ حدیث کا ڈیٹا لوڈ نہیں ہوا۔
-
-            <br><br>
-
-            براہ کرم چیک کریں:
-
-            <br><br>
-
-            <b>hadith-data.js</b>
-
-            <br><br>
-
-            یہ فائل <b>hadith.html</b> کے اسی folder میں ہونی چاہیے۔
-
-        </div>
-
-    `;
-
-}
+  }
+);
 
 </script>
 
