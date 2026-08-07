@@ -2,14 +2,12 @@
 <html lang="ur" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>احادیث رسول ﷺ - DEENIYAT 2.0</title>
 
-<!-- حدیث کا ڈیٹا پہلے لوڈ ہوگا -->
+<!-- حدیث کا ڈیٹا -->
 <script src="./hadith-data.js"></script>
 
 <style>
@@ -74,6 +72,16 @@ h1 {
   font-size: 21px;
 }
 
+.narrator {
+  background: #e8f5ef;
+  color: #0b5d3b;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
 .arabic {
   font-size: 24px;
   line-height: 2.2;
@@ -102,6 +110,15 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+}
+
+.error {
+  background: #fff;
+  color: #b00020;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 </style>
@@ -160,7 +177,19 @@ function showHadith(list) {
 
         div.innerHTML = `
 
-            <h2>${hadith.title || "حدیث"}</h2>
+            <h2>
+                ${hadith.title || "حدیث"}
+            </h2>
+
+            ${
+              hadith.narrator
+              ? `
+                <div class="narrator">
+                    👤 ${hadith.narrator}
+                </div>
+              `
+              : ""
+            }
 
             <div class="arabic">
                 ${hadith.arabic || ""}
@@ -171,7 +200,8 @@ function showHadith(list) {
             </div>
 
             <div class="reference">
-                حوالہ: ${hadith.reference || ""}
+                📚 حوالہ:
+                ${hadith.reference || ""}
             </div>
 
         `;
@@ -211,6 +241,12 @@ function searchHadith() {
 
             ||
 
+            (hadith.narrator || "")
+                .toLowerCase()
+                .includes(text)
+
+            ||
+
             (hadith.arabic || "")
                 .toLowerCase()
                 .includes(text)
@@ -236,18 +272,31 @@ function searchHadith() {
 }
 
 
-document.getElementById("search")
-    .addEventListener("input", searchHadith);
+document
+.getElementById("search")
+.addEventListener("input", searchHadith);
 
 
-if (typeof hadithData !== "undefined") {
+/* حدیث کا ڈیٹا چیک کریں */
+
+if (
+    typeof hadithData !== "undefined" &&
+    Array.isArray(hadithData)
+) {
 
     showHadith(hadithData);
 
 } else {
 
-    document.getElementById("status").innerText =
-    "حدیث کا ڈیٹا لوڈ نہیں ہوا۔";
+    document.getElementById("status").innerText = "";
+
+    document.getElementById("hadithList").innerHTML = `
+        <div class="error">
+            ❌ حدیث کا ڈیٹا لوڈ نہیں ہوا۔<br><br>
+            چیک کریں کہ <b>hadith-data.js</b>
+            اسی folder میں موجود ہے۔
+        </div>
+    `;
 
 }
 
