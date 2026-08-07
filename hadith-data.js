@@ -1,4 +1,4 @@
-hadithData = [
+window.hadithData = [
   {
     id: 1,
     title: "حدیث 1 — نیت",
