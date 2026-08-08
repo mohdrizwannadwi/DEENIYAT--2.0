@@ -236,6 +236,14 @@ function showHadith(list) {
         حوالہ:
         ${hadith.reference || ""}
       </div>
+      <div class="reference">
+    حوالہ:
+    ${hadith.reference || ""}
+</div>
+
+<button class="share-btn" onclick="navigator.share({title:'حدیث', text:this.parentElement.innerText, url:location.href})">
+    📤 حدیث شیئر کریں
+</button>
 
     `;
 
