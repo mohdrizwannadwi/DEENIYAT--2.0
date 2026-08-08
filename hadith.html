@@ -251,7 +251,18 @@ function showHadith(list) {
 
 }
 
+function copyHadith(button) {
+  const card = button.parentElement;
+  const text = card.innerText;
 
+  navigator.clipboard.writeText(text).then(() => {
+    button.innerText = "✅ حدیث کاپی ہوگئی";
+
+    setTimeout(() => {
+      button.innerText = "📋 حدیث کاپی کریں";
+    }, 2000);
+  });
+                                }
 function searchHadith() {
 
   const text =
