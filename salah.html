@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نماز - DEENIYAT 2.0</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #075c38;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      color: white;
+    }
+
+    h1 {
+      color: #ffd700;
+      font-size: 32px;
+    }
+
+    .intro {
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 15px;
+    }
+
+    .salah-card {
+      background: white;
+      margin: 18px 0;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .salah-card h2 {
+      color: #075c38;
+      margin-top: 0;
+    }
+
+    .rakats {
+      background: #fff4b8;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .arabic {
+      font-size: 24px;
+      line-height: 2;
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .urdu {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .reference {
+      margin-top: 12px;
+      color: #075c38;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: #ffd700;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      margin-top: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      color: white;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🕌 نماز کا طریقہ</h1>
+  <p class="intro">DEENIYAT 2.0 — Learn • Practice • Live Islam</p>
+</header>
+
+<div class="container">
+
+  <div class="salah-card">
+    <h2>🌅 فجر کی نماز</h2>
+    <div class="rakats">2 سنت + 2 فرض</div>
+
+    <div class="arabic">
+      نَوَيْتُ أَنْ أُصَلِّيَ لِلّٰهِ تَعَالَى
+    </div>
+
+    <div class="urdu">
+      نیت: میں اللہ تعالیٰ کے لیے فجر کی نماز پڑھنے کی نیت کرتا/کرتی ہوں۔
+    </div>
+
+    <div class="reference">
+      حوالہ: صحیح بخاری، کتاب الایمان
+    </div>
+
+    <button class="btn" onclick="copyText(this)">
+      📋 نماز کا متن کاپی کریں
+    </button>
+  </div>
+
+
+  <div class="salah-card">
+    <h2>☀️ ظہر کی نماز</h2>
+    <div class="rakats">4 سنت + 4 فرض + 2 سنت</div>
+
+    <div class="arabic">
+      أَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ
+    </div>
+
+    <div class="urdu">
+      نماز قائم کرو اور زکوٰۃ ادا کرو۔
+    </div>
+
+    <div class="reference">
+      حوالہ: القرآن، سورۃ البقرۃ 2:43
+    </div>
+
+    <button class="btn" onclick="copyText(this)">
+      📋 نماز کا متن کاپی کریں
+    </button>
+  </div>
+
+
+  <div class="salah-card">
+    <h2>🌤️ عصر کی نماز</h2>
+    <div class="rakats">4 فرض</div>
+
+    <div class="arabic">
+      حَافِظُوا عَلَى الصَّلَوَاتِ
+    </div>
+
+    <div class="urdu">
+      تمام نمازوں کی حفاظت کرو۔
+    </div>
+
+    <div class="reference">
+      حوالہ: القرآن، سورۃ البقرۃ 2:238
+    </div>
+
+    <button class="btn" onclick="copyText(this)">
+      📋 نماز کا متن کاپی کریں
+    </button>
+  </div>
+
+
+  <div class="salah-card">
+    <h2>🌇 مغرب کی نماز</h2>
+    <div class="rakats">3 فرض + 2 سنت</div>
+
+    <div class="arabic">
+      وَأَقِمِ الصَّلَاةَ لِذِكْرِي
+    </div>
+
+    <div class="urdu">
+      میری یاد کے لیے نماز قائم کرو۔
+    </div>
+
+    <div class="reference">
+      حوالہ: القرآن، سورۃ طٰہٰ 20:14
+    </div>
+
+    <button class="btn" onclick="copyText(this)">
+      📋 نماز کا متن کاپی کریں
+    </button>
+  </div>
+
+
+  <div class="salah-card">
+    <h2>🌙 عشاء کی نماز</h2>
+    <div class="rakats">4 فرض + 2 سنت + 3 وتر</div>
+
+    <div class="arabic">
+      وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَكَ
+    </div>
+
+    <div class="urdu">
+      رات کے کچھ حصے میں تہجد کی نماز پڑھا کریں۔
+    </div>
+
+    <div class="reference">
+      حوالہ: القرآن، سورۃ الإسراء 17:79
+    </div>
+
+    <button class="btn" onclick="copyText(this)">
+      📋 نماز کا متن کاپی کریں
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 DEENIYAT 2.0
+</footer>
+
+
+<script>
+function copyText(button) {
+
+  const card = button.parentElement;
+  const text = card.innerText;
+
+  navigator.clipboard.writeText(text).then(function() {
+
+    button.innerText = "✅ کاپی ہوگیا";
+
+    setTimeout(function() {
+      button.innerText = "📋 نماز کا متن کاپی کریں";
+    }, 2000);
+
+  });
+}
+</script>
+
+</body>
+</html>
