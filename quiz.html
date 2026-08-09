@@ -1,444 +1,971 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>اسلامی Quiz | DEENIYAT 2.0</title>
 
 <style>
-* {
-  box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  background: #f4f8f3;
-  color: #222;
-  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+body{
+    margin:0;
+    background:#f4f8f3;
+    color:#222;
+    font-family:
+    "Noto Nastaliq Urdu",
+    "Jameel Noori Nastaleeq",
+    "Noto Naskh Arabic",
+    serif;
+    line-height:2;
 }
 
-.header {
-  background: #086b3c;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
+.header{
+    background:#086b3c;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
 }
 
-.header h1 {
-  margin: 0;
-  color: #ffd800;
-  font-size: 34px;
+.header h1{
+    margin:0;
+    color:#ffd800;
+    font-size:34px;
 }
 
-.header p {
-  margin: 8px 0 0;
-  font-family: serif;
-  font-size: 22px;
+.header p{
+    margin:5px 0 0;
+    font-family:Arial,sans-serif;
+    font-size:18px;
 }
 
-.container {
-  max-width: 850px;
-  margin: auto;
-  padding: 20px 15px;
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:15px;
 }
 
-.quiz-card {
-  background: white;
-  border-radius: 18px;
-  padding: 25px;
-  margin-top: 20px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+.quiz-card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-top:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-.question-number {
-  color: #668f21;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.question-number{
+    color:#769b20;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.question {
-  font-size: 27px;
-  font-weight: bold;
-  line-height: 2;
-  margin-bottom: 20px;
+.question{
+    font-size:26px;
+    font-weight:bold;
+    line-height:2;
+    margin-bottom:20px;
 }
 
-.options {
-  display: grid;
-  gap: 12px;
+.options{
+    display:grid;
+    gap:12px;
 }
 
-.option {
-  width: 100%;
-  border: 2px solid #086b3c;
-  background: white;
-  color: #086b3c;
-  padding: 13px;
-  border-radius: 12px;
-  font-family: inherit;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: right;
+.option{
+    width:100%;
+    border:2px solid #086b3c;
+    background:white;
+    color:#086b3c;
+    padding:12px 15px;
+    border-radius:12px;
+    font-family:inherit;
+    font-size:20px;
+    cursor:pointer;
+    text-align:right;
 }
 
-.option:hover {
-  background: #e9f5ee;
+.option:hover{
+    background:#eaf5ee;
 }
 
-.option.correct {
-  background: #b8e6c8;
-  border-color: #16833f;
-  color: #075b28;
+.option.correct{
+    background:#b9e8c9;
+    border-color:#16833f;
+    color:#075b28;
 }
 
-.option.wrong {
-  background: #ffd0d0;
-  border-color: #d33;
-  color: #a00;
+.option.wrong{
+    background:#ffd1d1;
+    border-color:#d33;
+    color:#a00000;
 }
 
-#nextBtn {
-  display: none;
-  width: 100%;
-  margin-top: 20px;
-  padding: 13px;
-  border: none;
-  border-radius: 12px;
-  background: #086b3c;
-  color: white;
-  font-family: inherit;
-  font-size: 21px;
-  cursor: pointer;
+.option:disabled{
+    cursor:default;
 }
 
-#nextBtn:hover {
-  background: #07572f;
+.reference{
+    display:none;
+    background:#f4f7ed;
+    border-right:5px solid #769b20;
+    border-radius:10px;
+    padding:12px;
+    margin-top:18px;
+    font-size:18px;
+    color:#555;
 }
 
-.result {
-  display: none;
-  text-align: center;
-  font-size: 25px;
-  line-height: 2;
+#nextBtn{
+    display:none;
+    width:100%;
+    margin-top:20px;
+    padding:13px;
+    border:0;
+    border-radius:12px;
+    background:#086b3c;
+    color:white;
+    font-family:inherit;
+    font-size:21px;
+    cursor:pointer;
 }
 
-.restart {
-  background: #086b3c;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 20px;
+#nextBtn:hover{
+    background:#07572f;
 }
 
-.footer {
-  margin-top: 40px;
-  background: #086b3c;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-family: serif;
-  font-size: 20px;
+.result{
+    display:none;
+    text-align:center;
+    font-size:24px;
 }
+
+.result h2{
+    color:#086b3c;
+}
+
+.score{
+    color:#769b20;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.restart{
+    background:#086b3c;
+    color:white;
+    border:0;
+    padding:12px 25px;
+    border-radius:10px;
+    font-family:inherit;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.footer{
+    margin-top:40px;
+    background:#086b3c;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-family:Arial,sans-serif;
+}
+
+@media(max-width:600px){
+
+    .header h1{
+        font-size:27px;
+    }
+
+    .question{
+        font-size:21px;
+    }
+
+    .option{
+        font-size:18px;
+    }
+
+    .reference{
+        font-size:16px;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header class="header">
-  <h1>Quiz اسلامی 📝</h1>
-  <p>DEENIYAT 2.0</p>
+
+<h1>🕌 اسلامی Quiz</h1>
+
+<p>DEENIYAT 2.0 • Learn • Practice • Live Islam</p>
+
 </header>
+
 
 <main class="container">
 
-  <div class="quiz-card" id="quizBox">
+<div class="quiz-card" id="quizBox">
 
-    <div class="question-number" id="questionNumber">
-      سوال 1 / 10
-    </div>
+<div class="question-number" id="questionNumber">
+سوال 1 / 100
+</div>
 
-    <div class="question" id="question">
-      سوال یہاں آئے گا
-    </div>
+<div class="question" id="question">
+سوال یہاں آئے گا
+</div>
 
-    <div class="options" id="options"></div>
+<div class="options" id="options"></div>
 
-    <button id="nextBtn">اگلا سوال ➜</button>
+<div class="reference" id="reference"></div>
 
-  </div>
+<button id="nextBtn">
+اگلا سوال ➜
+</button>
 
-  <div class="quiz-card result" id="resultBox">
-    <h2>🎉 Quiz مکمل ہوگیا!</h2>
+</div>
 
-    <div id="scoreText"></div>
 
-    <br>
+<div class="quiz-card result" id="resultBox">
 
-    <button class="restart" onclick="restartQuiz()">
-      دوبارہ شروع کریں
-    </button>
-  </div>
+<h2>🎉 Quiz مکمل ہوگیا!</h2>
+
+<p>آپ کا مکمل نتیجہ:</p>
+
+<div class="score" id="scoreText"></div>
+
+<p id="message"></p>
+
+<button class="restart" onclick="restartQuiz()">
+دوبارہ Quiz شروع کریں
+</button>
+
+</div>
 
 </main>
 
+
 <footer class="footer">
-  DEENIYAT 2.0 2026 ©
+
+© 2026 DEENIYAT 2.0
+
 </footer>
 
 
-<!-- JavaScript ہمیشہ style کے باہر -->
 <script>
+
+
+/* =====================================================
+   100 اسلامی سوالات
+===================================================== */
 
 const questions = [
 
-  {
-    question: "اسلام کے کتنے ارکان ہیں؟",
-    options: ["3", "4", "5", "6"],
-    answer: 2
-  },
-
-  {
-    question: "قرآن مجید کس نبی ﷺ پر نازل ہوا؟",
-    options: [
-      "حضرت موسیٰ علیہ السلام",
-      "حضرت عیسیٰ علیہ السلام",
-      "حضرت محمد ﷺ",
-      "حضرت ابراہیم علیہ السلام"
-    ],
-    answer: 2
-  },
-
-  {
-    question: "قرآن مجید میں کتنی سورتیں ہیں؟",
-    options: ["110", "114", "120", "124"],
-    answer: 1
-  },
-
-  {
-    question: "اسلام کی پہلی مسجد کون سی ہے؟",
-    options: [
-      "مسجد نبوی",
-      "مسجد الحرام",
-      "مسجد قباء",
-      "مسجد اقصیٰ"
-    ],
-    answer: 2
-  },
-
-  {
-    question: "نماز دن میں کتنی مرتبہ فرض ہے؟",
-    options: ["3", "4", "5", "6"],
-    answer: 2
-  },
-
-  {
-    question: "رمضان المبارک میں کون سی عبادت فرض ہے؟",
-    options: ["زکوٰۃ", "روزہ", "حج", "قربانی"],
-    answer: 1
-  },
-
-  {
-    question: "مسلمانوں کا قبلہ کیا ہے؟",
-    options: [
-      "مسجد نبوی",
-      "خانہ کعبہ",
-      "مسجد اقصیٰ",
-      "مسجد قباء"
-    ],
-    answer: 1
-  },
-
-  {
-    question: "اسلامی سال کا پہلا مہینہ کون سا ہے؟",
-    options: [
-      "رمضان",
-      "محرم",
-      "شوال",
-      "رجب"
-    ],
-    answer: 1
-  },
-
-  {
-    question: "زکوٰۃ اسلام کا کون سا رکن ہے؟",
-    options: ["پہلا", "دوسرا", "تیسرا", "چوتھا"],
-    answer: 2
-  },
-
-  {
-    question: "حج کس اسلامی مہینے میں ادا کیا جاتا ہے؟",
-    options: [
-      "رمضان",
-      "شوال",
-      "ذوالقعدہ",
-      "ذوالحجہ"
-    ],
-    answer: 3
-  }
-
-];
-
-
-let currentQuestion = 0;
-let score = 0;
-let answered = false;
-
-
-const questionNumber =
-  document.getElementById("questionNumber");
-
-const question =
-  document.getElementById("question");
-
-const options =
-  document.getElementById("options");
-
-const nextBtn =
-  document.getElementById("nextBtn");
-
-const quizBox =
-  document.getElementById("quizBox");
-
-const resultBox =
-  document.getElementById("resultBox");
-
-const scoreText =
-  document.getElementById("scoreText");
-
-
-function loadQuestion() {
-
-  answered = false;
-
-  const q = questions[currentQuestion];
-
-  questionNumber.innerText =
-    "سوال " + (currentQuestion + 1)
-    + " / " + questions.length;
-
-  question.innerText = q.question;
-
-  options.innerHTML = "";
-
-  nextBtn.style.display = "none";
-
-
-  q.options.forEach(function(optionText, index) {
-
-    const button =
-      document.createElement("button");
-
-    button.className = "option";
-
-    button.innerText = optionText;
-
-    button.onclick = function() {
-      selectAnswer(button, index);
-    };
-
-    options.appendChild(button);
-
-  });
-
-}
-
-
-function selectAnswer(button, index) {
-
-  if (answered) {
-    return;
-  }
-
-  answered = true;
-
-  const correctAnswer =
-    questions[currentQuestion].answer;
-
-  const allOptions =
-    document.querySelectorAll(".option");
-
-
-  if (index === correctAnswer) {
-
-    button.classList.add("correct");
-
-    score++;
-
-  } else {
-
-    button.classList.add("wrong");
-
-    allOptions[correctAnswer]
-      .classList.add("correct");
-
-  }
-
-
-  allOptions.forEach(function(btn) {
-    btn.disabled = true;
-  });
-
-
-  nextBtn.style.display = "block";
-}
-
-
-nextBtn.onclick = function() {
-
-  currentQuestion++;
-
-  if (currentQuestion < questions.length) {
-
-    loadQuestion();
-
-  } else {
-
-    showResult();
-
-  }
-
-};
-
-
-function showResult() {
-
-  quizBox.style.display = "none";
-
-  resultBox.style.display = "block";
-
-  scoreText.innerHTML =
-    "آپ کا اسکور: <strong>"
-    + score
-    + " / "
-    + questions.length
-    + "</strong>";
-
-}
-
-
-function restartQuiz() {
-
-  currentQuestion = 0;
-
-  score = 0;
-
-  resultBox.style.display = "none";
-
-  quizBox.style.display = "block";
-
-  loadQuestion();
-
-}
-
-
-// Quiz شروع کریں
-loadQuestion();
-
-</script>
-
-</body>
-</html>
+{
+question:"اسلام کے کتنے ارکان ہیں؟",
+options:["3","4","5","6"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"اسلام کا پہلا رکن کیا ہے؟",
+options:["نماز","روزہ","کلمۂ شہادت","زکوٰۃ"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"دن میں کتنی نمازیں فرض ہیں؟",
+options:["3","4","5","6"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 46، صحیح مسلم: 11"
+},
+
+{
+question:"قرآن مجید کس نبی ﷺ پر نازل ہوا؟",
+options:["حضرت موسیٰؑ","حضرت عیسیٰؑ","حضرت محمد ﷺ","حضرت ابراہیمؑ"],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 185"
+},
+
+{
+question:"قرآن مجید میں کتنی سورتیں ہیں؟",
+options:["110","112","114","116"],
+answer:2,
+reference:"حوالہ: سنن ترمذی: 3086"
+},
+
+{
+question:"قرآن مجید کی پہلی سورت کون سی ہے؟",
+options:["البقرۃ","الفاتحہ","الاخلاص","الناس"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 756، صحیح مسلم: 394"
+},
+
+{
+question:"قرآن مجید کی سب سے بڑی سورت کون سی ہے؟",
+options:["آل عمران","النساء","البقرۃ","المائدہ"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 4474"
+},
+
+{
+question:"قرآن مجید کی سب سے چھوٹی سورت کون سی ہے؟",
+options:["الکوثر","العصر","الاخلاص","الفلق"],
+answer:0,
+reference:"حوالہ: سورۃ الکوثر: 1-3"
+},
+
+{
+question:"رمضان کے روزے کس مہینے میں رکھے جاتے ہیں؟",
+options:["محرم","رجب","رمضان","شوال"],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 185"
+},
+
+{
+question:"زکوٰۃ اسلام کا کون سا رکن ہے؟",
+options:["پہلا","دوسرا","تیسرا","چوتھا"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"حج کس اسلامی مہینے میں ادا کیا جاتا ہے؟",
+options:["رمضان","شوال","ذوالقعدہ","ذوالحجہ"],
+answer:3,
+reference:"حوالہ: سورۃ البقرۃ: 197"
+},
+
+{
+question:"مسلمانوں کا قبلہ کیا ہے؟",
+options:["مسجد نبوی","خانہ کعبہ","مسجد اقصیٰ","مسجد قباء"],
+answer:1,
+reference:"حوالہ: سورۃ البقرۃ: 144"
+},
+
+{
+question:"اسلامی سال کا پہلا مہینہ کون سا ہے؟",
+options:["رمضان","محرم","شوال","رجب"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 3197، صحیح مسلم: 1679"
+},
+
+{
+question:"اسلامی سال میں کتنے مہینے ہیں؟",
+options:["10","11","12","13"],
+answer:2,
+reference:"حوالہ: سورۃ التوبہ: 36"
+},
+
+{
+question:"جمعہ کی نماز کس دن ادا کی جاتی ہے؟",
+options:["پیر","بدھ","جمعرات","جمعہ"],
+answer:3,
+reference:"حوالہ: سورۃ الجمعہ: 9"
+},
+
+{
+question:"فجر کی فرض نماز کتنی رکعت ہے؟",
+options:["2","3","4","5"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 574، صحیح مسلم: 685"
+},
+
+{
+question:"ظہر کی فرض نماز کتنی رکعت ہے؟",
+options:["2","3","4","5"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 521، صحیح مسلم: 527"
+},
+
+{
+question:"عصر کی فرض نماز کتنی رکعت ہے؟",
+options:["2","3","4","5"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 574، صحیح مسلم: 685"
+},
+
+{
+question:"مغرب کی فرض نماز کتنی رکعت ہے؟",
+options:["2","3","4","5"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 574، صحیح مسلم: 685"
+},
+
+{
+question:"عشاء کی فرض نماز کتنی رکعت ہے؟",
+options:["2","3","4","5"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 574، صحیح مسلم: 685"
+},
+
+{
+question:"وتر کی نماز کس نماز کے بعد پڑھی جاتی ہے؟",
+options:["فجر","ظہر","مغرب","عشاء"],
+answer:3,
+reference:"حوالہ: صحیح بخاری: 998، صحیح مسلم: 751"
+},
+
+{
+question:"نماز شروع کرتے وقت کہی جانے والی تکبیر کو کیا کہتے ہیں؟",
+options:["تکبیرِ تشریق","تکبیرِ تحریمہ","تکبیرِ جنازہ","تکبیرِ عید"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 738، صحیح مسلم: 397"
+},
+
+{
+question:"رکوع میں کیا پڑھا جاتا ہے؟",
+options:["سُبْحَانَ رَبِّيَ الْعَظِيمِ","سُبْحَانَ رَبِّيَ الْأَعْلَى","رَبِّ اغْفِرْ لِي","التحیات"],
+answer:0,
+reference:"حوالہ: سنن ابی داؤد: 869، سنن ترمذی: 262"
+},
+
+{
+question:"سجدے میں کیا پڑھا جاتا ہے؟",
+options:["سُبْحَانَ رَبِّيَ الْعَظِيمِ","سُبْحَانَ رَبِّيَ الْأَعْلَى","سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ","التحیات"],
+answer:1,
+reference:"حوالہ: سنن ابی داؤد: 870، سنن ترمذی: 262"
+},
+
+{
+question:"نماز میں سجدہ کس کے لیے کیا جاتا ہے؟",
+options:["فرشتوں کے لیے","نبی ﷺ کے لیے","اللہ تعالیٰ کے لیے","لوگوں کے لیے"],
+answer:2,
+reference:"حوالہ: سورۃ النجم: 62"
+},
+
+{
+question:"اذان دینے والے کو کیا کہتے ہیں؟",
+options:["امام","مؤذن","قاری","خطیب"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 604، صحیح مسلم: 377"
+},
+
+{
+question:"کلمۂ شہادت میں کس چیز کی گواہی دی جاتی ہے؟",
+options:["صرف نماز کی","اللہ کی وحدانیت اور محمد ﷺ کی رسالت کی","صرف روزے کی","صرف حج کی"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"اللہ تعالیٰ کے آخری نبی کون ہیں؟",
+options:["حضرت آدمؑ","حضرت موسیٰؑ","حضرت عیسیٰؑ","حضرت محمد ﷺ"],
+answer:3,
+reference:"حوالہ: سورۃ الاحزاب: 40"
+},
+
+{
+question:"نبی کریم ﷺ کی ولادت کس شہر میں ہوئی؟",
+options:["مدینہ","مکہ","طائف","قدس"],
+answer:1,
+reference:"حوالہ: سیرت ابن ہشام"
+},
+
+{
+question:"نبی کریم ﷺ نے ہجرت کس شہر کی طرف فرمائی؟",
+options:["مکہ","مدینہ","طائف","شام"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 3905"
+},
+
+{
+question:"نبی کریم ﷺ کی پہلی زوجہ کون تھیں؟",
+options:["حضرت عائشہؓ","حضرت حفصہؓ","حضرت خدیجہؓ","حضرت ام سلمہؓ"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 3818"
+},
+
+{
+question:"نبی کریم ﷺ کے والد کا نام کیا تھا؟",
+options:["ابو طالب","عبداللہ","عبدالمطلب","حمزہ"],
+answer:1,
+reference:"حوالہ: سیرت ابن ہشام"
+},
+
+{
+question:"نبی کریم ﷺ کی والدہ کا نام کیا تھا؟",
+options:["آمنہ بنت وہب","حلیمہ سعدیہ","صفیہ","فاطمہ"],
+answer:0,
+reference:"حوالہ: سیرت ابن ہشام"
+},
+
+{
+question:"نبی کریم ﷺ کے دادا کا نام کیا تھا؟",
+options:["ابو طالب","عبدالمطلب","ابو سفیان","عباس"],
+answer:1,
+reference:"حوالہ: سیرت ابن ہشام"
+},
+
+{
+question:"نبی کریم ﷺ پر پہلی وحی کہاں نازل ہوئی؟",
+options:["غار ثور","غار حرا","مسجد نبوی","عرفات"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 3"
+},
+
+{
+question:"پہلی وحی کے ابتدائی الفاظ کیا تھے؟",
+options:["الحمدللہ","اقْرَأْ بِاسْمِ رَبِّكَ","اللّٰهُ أَكْبَرُ","سُبْحَانَ اللّٰهِ"],
+answer:1,
+reference:"حوالہ: سورۃ العلق: 1"
+},
+
+{
+question:"وحی لے کر کون سے فرشتے نبی ﷺ کے پاس آتے تھے؟",
+options:["میکائیلؑ","اسرافیلؑ","جبرائیلؑ","عزرائیلؑ"],
+answer:2,
+reference:"حوالہ: سورۃ الشعراء: 193"
+},
+
+{
+question:"قرآن مجید کس رات نازل ہونا شروع ہوا؟",
+options:["شب برات","لیلۃ القدر","شب معراج","شب جمعہ"],
+answer:1,
+reference:"حوالہ: سورۃ القدر: 1"
+},
+
+{
+question:"لیلۃ القدر کس مہینے میں ہے؟",
+options:["محرم","رجب","شعبان","رمضان"],
+answer:3,
+reference:"حوالہ: سورۃ القدر: 1-3"
+},
+
+{
+question:"قرآن مجید کی سب سے عظیم آیت کون سی ہے؟",
+options:["آیت الکرسی","آیت الدین","آیت نور","آیت مباہلہ"],
+answer:0,
+reference:"حوالہ: صحیح مسلم: 810"
+},
+
+{
+question:"آیت الکرسی کس سورت میں ہے؟",
+options:["الفاتحہ","البقرۃ","آل عمران","النساء"],
+answer:1,
+reference:"حوالہ: سورۃ البقرۃ: 255"
+},
+
+{
+question:"سورۃ الاخلاص میں کس عقیدے کا بیان ہے؟",
+options:["حج","توحید","زکوٰۃ","روزہ"],
+answer:1,
+reference:"حوالہ: سورۃ الاخلاص: 1-4"
+},
+
+{
+question:"سورۃ الاخلاص کی کتنی آیات ہیں؟",
+options:["3","4","5","6"],
+answer:1,
+reference:"حوالہ: سورۃ الاخلاص: 1-4"
+},
+
+{
+question:"سورۃ الفلق میں کس سے پناہ مانگی گئی ہے؟",
+options:["مخلوقات کے شر سے","صرف بھوک سے","صرف سفر سے","صرف بیماری سے"],
+answer:0,
+reference:"حوالہ: سورۃ الفلق: 1-5"
+},
+
+{
+question:"سورۃ الناس میں کس سے پناہ مانگی گئی ہے؟",
+options:["وسوسہ ڈالنے والے کے شر سے","بارش سے","گرمی سے","سفر سے"],
+answer:0,
+reference:"حوالہ: سورۃ الناس: 1-6"
+},
+
+{
+question:"اسلام میں روزہ کس وقت شروع ہوتا ہے؟",
+options:["غروب آفتاب","فجر طلوع ہونے سے","ظہر","عصر"],
+answer:1,
+reference:"حوالہ: سورۃ البقرۃ: 187"
+},
+
+{
+question:"روزہ کس وقت ختم کیا جاتا ہے؟",
+options:["فجر","ظہر","غروب آفتاب","عشاء"],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 187"
+},
+
+{
+question:"عیدالفطر کس مہینے کے بعد آتی ہے؟",
+options:["محرم","رمضان","ذوالحجہ","رجب"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 953، صحیح مسلم: 892"
+},
+
+{
+question:"عیدالاضحیٰ کس مہینے میں ہوتی ہے؟",
+options:["رمضان","شوال","ذوالحجہ","محرم"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 971، صحیح مسلم: 892"
+},
+
+{
+question:"قربانی کس نبیؑ کی سنت کی یادگار ہے؟",
+options:["حضرت نوحؑ","حضرت ابراہیمؑ","حضرت یوسفؑ","حضرت یونسؑ"],
+answer:1,
+reference:"حوالہ: سورۃ الصافات: 102-107"
+},
+
+{
+question:"صفا اور مروہ کے درمیان چلنے کو کیا کہتے ہیں؟",
+options:["طواف","سعی","وقوف","رمی"],
+answer:1,
+reference:"حوالہ: سورۃ البقرۃ: 158"
+},
+
+{
+question:"خانہ کعبہ کے گرد چکر لگانے کو کیا کہتے ہیں؟",
+options:["سعی","طواف","رمی","وقوف"],
+answer:1,
+reference:"حوالہ: سورۃ الحج: 29"
+},
+
+{
+question:"حج میں عرفات میں ٹھہرنے کو کیا کہتے ہیں؟",
+options:["طواف","سعی","وقوف عرفہ","رمی"],
+answer:2,
+reference:"حوالہ: سنن ابی داؤد: 1949، سنن ترمذی: 889"
+},
+
+{
+question:"مسجد نبوی کس شہر میں ہے؟",
+options:["مکہ","مدینہ","طائف","دمشق"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 1190، صحیح مسلم: 1394"
+},
+
+{
+question:"مسجد الحرام کس شہر میں ہے؟",
+options:["مدینہ","مکہ","طائف","بیت المقدس"],
+answer:1,
+reference:"حوالہ: سورۃ آل عمران: 96"
+},
+
+{
+question:"مسجد اقصیٰ کس شہر میں ہے؟",
+options:["مکہ","مدینہ","بیت المقدس","طائف"],
+answer:2,
+reference:"حوالہ: سورۃ الاسراء: 1"
+},
+
+{
+question:"اسلام کی پہلی مسجد کون سی ہے؟",
+options:["مسجد نبوی","مسجد قباء","مسجد الحرام","مسجد اقصیٰ"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 1193، صحیح مسلم: 1398"
+},
+
+{
+question:"مسجد الحرام میں موجود مقدس گھر کو کیا کہتے ہیں؟",
+options:["روضہ رسول","خانہ کعبہ","مقام ابراہیم","صفا"],
+answer:1,
+reference:"حوالہ: سورۃ آل عمران: 96"
+},
+
+{
+question:"زکوٰۃ کا ایک مقصد کیا ہے؟",
+options:["مال کو پاک کرنا","سفر کرنا","کھیلنا","صرف تجارت کرنا"],
+answer:0,
+reference:"حوالہ: سورۃ التوبہ: 103"
+},
+
+{
+question:"صدقہ کے بارے میں نبی ﷺ نے کیا فرمایا؟",
+options:["صدقہ مال کو کم کرتا ہے","صدقہ مال کو پاکیزہ کرتا ہے اور اجر کا سبب ہے","صدقہ منع ہے","صدقہ صرف امیروں کے لیے ہے"],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 2588"
+},
+
+{
+question:"والدین کے ساتھ کیا سلوک کرنا چاہیے؟",
+options:["بدسلوکی","حسن سلوک","قطع تعلق","غصہ"],
+answer:1,
+reference:"حوالہ: سورۃ الاسراء: 23"
+},
+
+{
+question:"جھوٹ بولنے کے بارے میں اسلام کا کیا حکم ہے؟",
+options:["جائز ہے","مستحب ہے","منع ہے","فرض ہے"],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 6094، صحیح مسلم: 2607"
+},
+
+{
+question:"امانت کے بارے میں کیا حکم ہے؟",
+options:["خیانت کرو","امانت ادا کرو","چھپا دو","ضائع کرو"],
+answer:1,
+reference:"حوالہ: سنن ابی داؤد: 3534"
+},
+
+{
+question:"مسلمان کی زبان کو کس چیز سے بچانا چاہیے؟",
+options:["اچھی بات سے","غیبت اور بدکلامی سے","سلام سے","ذکر سے"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 6018، صحیح مسلم: 47"
+},
+
+{
+question:"غیبت کیا ہے؟",
+options:["کسی کی تعریف","کسی شخص کا ایسا ذکر کرنا جو اسے ناپسند ہو","سلام کرنا","دعا کرنا"],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 2589"
+},
+
+{
+question:"سلام کا جواب دینا کیسا عمل ہے؟",
+options:["برا","اسلامی حق","حرام","ممنوع"],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 2162"
+},
+
+{
+question:"مسلمان کا دوسرے مسلمان پر ایک حق کیا ہے؟",
+options:["سلام کا جواب دینا","اسے دھوکا دینا","اس کی غیبت کرنا","اسے ستانا"],
+answer:0,
+reference:"حوالہ: صحیح مسلم: 2162"
+},
+
+{
+question:"صفائی کے بارے میں حدیث میں کیا آیا ہے؟",
+options:["صفائی نصف ایمان ہے","صفائی منع ہے","صفائی ضروری نہیں","صفائی صرف جمعہ کو ہے"],
+answer:0,
+reference:"حوالہ: صحیح مسلم: 223"
+},
+
+{
+question:"وضو کس عبادت کے لیے عام طور پر ضروری ہے؟",
+options:["نماز","کھانا","سونا","تجارت"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 135، صحیح مسلم: 225"
+},
+
+{
+question:"وضو میں چہرہ دھونا کس حکم کا حصہ ہے؟",
+options:["وضو کا حصہ","نماز کے بعد","صرف غسل کا حصہ","کوئی عبادت نہیں"],
+answer:0,
+reference:"حوالہ: سورۃ المائدہ: 6"
+},
+
+{
+question:"تیمم کب کیا جا سکتا ہے؟",
+options:["پانی نہ ملنے یا استعمال نہ کر سکنے کی صورت میں","ہر وقت","صرف جمعہ کو","صرف عید کو"],
+answer:0,
+reference:"حوالہ: سورۃ النساء: 43، سورۃ المائدہ: 6"
+},
+
+{
+question:"نماز کے لیے طہارت کی کیا اہمیت ہے؟",
+options:["اہم ہے","ضروری نہیں","صرف عید کے لیے","صرف سفر میں"],
+answer:0,
+reference:"حوالہ: صحیح مسلم: 224"
+},
+
+{
+question:"نماز میں قرآن کی تلاوت کہاں کی جاتی ہے؟",
+options:["قیام میں","صرف رکوع میں","صرف سجدے میں","سلام کے بعد"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 756، صحیح مسلم: 394"
+},
+
+{
+question:"نماز میں رکوع کے بعد کیا کیا جاتا ہے؟",
+options:["سیدھا کھڑا ہونا","فوراً سلام","گھر جانا","وضو کرنا"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 793، صحیح مسلم: 397"
+},
+
+{
+question:"دو سجدوں کے درمیان کیا کیا جاتا ہے؟",
+options:["جلسہ","سلام","اذان","اقامت"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 793، صحیح مسلم: 397"
+},
+
+{
+question:"نماز کے آخر میں کیا کیا جاتا ہے؟",
+options:["سلام پھیرا جاتا ہے","اذان دی جاتی ہے","وضو کیا جاتا ہے","کھانا کھایا جاتا ہے"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 6265، صحیح مسلم: 582"
+},
+
+{
+question:"تشہد میں کس چیز کی گواہی دی جاتی ہے؟",
+options:["توحید و رسالت","صرف تجارت","صرف حج","صرف روزہ"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 831، صحیح مسلم: 402"
+},
+
+{
+question:"نماز میں درود شریف کس کے بعد پڑھا جاتا ہے؟",
+options:["تشہد کے بعد","اذان سے پہلے","رکوع سے پہلے","وضو سے پہلے"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 6357، صحیح مسلم: 406"
+},
+
+{
+question:"دعا کے بارے میں حدیث میں کیا آیا ہے؟",
+options:["دعا عبادت ہے","دعا منع ہے","دعا صرف رمضان میں ہے","دعا صرف حج میں ہے"],
+answer:0,
+reference:"حوالہ: سنن ابی داؤد: 1479، سنن ترمذی: 2969"
+},
+
+{
+question:"اللہ تعالیٰ نے انسانوں کو کس مقصد کے لیے پیدا کیا؟",
+options:["صرف مال کے لیے","عبادت کے لیے","صرف کھیل کے لیے","صرف دنیا کے لیے"],
+answer:1,
+reference:"حوالہ: سورۃ الذاریات: 56"
+},
+
+{
+question:"اللہ تعالیٰ کے ساتھ کسی کو شریک کرنا کیا ہے؟",
+options:["توحید","شرک","صبر","شکر"],
+answer:1,
+reference:"حوالہ: سورۃ النساء: 48"
+},
+
+{
+question:"اللہ تعالیٰ کی وحدانیت کو کیا کہتے ہیں؟",
+options:["توحید","تقویٰ","صبر","زکوٰۃ"],
+answer:0,
+reference:"حوالہ: سورۃ الاخلاص: 1-4"
+},
+
+{
+question:"اللہ تعالیٰ سے ڈرنے اور اس کی اطاعت کرنے کو کیا کہتے ہیں؟",
+options:["تقویٰ","تجارت","سفر","غفلت"],
+answer:0,
+reference:"حوالہ: سورۃ الحجرات: 13"
+},
+
+{
+question:"مشکل وقت میں اللہ کی مدد کے لیے کس چیز سے کام لینا چاہیے؟",
+options:["صبر اور نماز","غصہ","جھوٹ","بدلہ"],
+answer:0,
+reference:"حوالہ: سورۃ البقرۃ: 153"
+},
+
+{
+question:"اللہ تعالیٰ کی نعمتوں پر کیا کرنا چاہیے؟",
+options:["شکر","ناشکری","تکبر","غفلت"],
+answer:0,
+reference:"حوالہ: سورۃ ابراہیم: 7"
+},
+
+{
+question:"صبر کرنے والوں کے بارے میں اللہ تعالیٰ نے کیا فرمایا؟",
+options:["اللہ ان کے ساتھ ہے","اللہ ان سے ناراض ہے","وہ محروم ہیں","ان کا کوئی اجر نہیں"],
+answer:0,
+reference:"حوالہ: سورۃ البقرۃ: 153"
+},
+
+{
+question:"مسلمانوں کو آپس میں کیا بن کر رہنا چاہیے؟",
+options:["بھائی بھائی","دشمن","اجنبی","حریف"],
+answer:0,
+reference:"حوالہ: سورۃ الحجرات: 10"
+},
+
+{
+question:"کسی مسلمان کا مذاق اڑانا کیسا ہے؟",
+options:["جائز","منع","فرض","سنت"],
+answer:1,
+reference:"حوالہ: سورۃ الحجرات: 11"
+},
+
+{
+question:"بدگمانی کے بارے میں کیا حکم ہے؟",
+options:["اس سے بچنا چاہیے","ہمیشہ کرنا چاہیے","ضروری ہے","سنت ہے"],
+answer:0,
+reference:"حوالہ: سورۃ الحجرات: 12"
+},
+
+{
+question:"تکبر کے بارے میں اسلام کا کیا حکم ہے؟",
+options:["پسندیدہ","ممنوع","فرض","مستحب"],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 91"
+},
+
+{
+question:"نبی ﷺ نے مسلمان کی پہچان کس عمل سے بھی بیان فرمائی؟",
+options:["جس کی زبان اور ہاتھ سے دوسرے مسلمان محفوظ رہیں","جو ہمیشہ خاموش رہے","جو صرف مال جمع کرے","جو سفر کرے"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 10، صحیح مسلم: 40"
+},
+
+{
+question:"مسلمان کو اپنے پڑوسی کے ساتھ کیا کرنا چاہیے؟",
+options:["حسن سلوک","بدسلوکی","تکلیف","قطع تعلق"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 6014، صحیح مسلم: 2625"
+},
+
+{
+question:"مہمان کے ساتھ کیا سلوک کرنا چاہیے؟",
+options:["اکرام","بے عزتی","نظر انداز","دھوکا"],
+answer:0,
+reference:"حوالہ: صحیح بخاری: 6018، صحیح مسلم: 47"
+},
+
+{
+question:"والدین میں سے کس کے ساتھ حسن سلوک کا خصوصی حق بیان ہوا؟",
+options:["صرف والد","والدہ","صرف بھائی","صرف دوست"],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 5971، صحیح مسلم: 2548"
+},
+
+{
+question:"علم حاصل کرنے کے بارے میں اسلام کیا ترغیب دیتا ہے؟",
+options:["علم سے دور رہو","علم حاصل کرو","صرف مال جمع کرو","کچھ نہ سیکھو"],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 2699"
+},
+
+{
+question:"قرآن پڑھنے والے کے لیے کیا فضیلت بیان ہوئی ہے؟",
+options:["ہر حرف پر اجر","کوئی اجر نہیں","صرف دنیاوی فائدہ","صرف تجارت"],
+answer:0,
+reference:"حوالہ: سنن ترمذی: 2910"
+},
+
+{
+question:"قرآن مجید پڑھنے کا بنیادی مقصد کیا ہے؟",
+options:["ہدایت حاصل کرنا","صرف مقابلہ","صرف آواز","صرف شہرت"],
+answer:0,
+reference:"حوالہ: سورۃ ص: 29"
+},
+
+{
+question:"اللہ کو یاد کرنے سے دلوں کو کیا ملتا ہے؟",
+options:["اطمینان","پریشانی","غصہ","تکبر"],
+answer:0,
+reference:"حوالہ: سورۃ الرعد: 28"
+},
+
+{
+question:"افضل اذکار میں سے ایک کیا ہے؟",
+options:["لَا إِلٰهَ إِلَّا اللّٰهُ","صرف دنیاوی بات","غیبت","جھوٹ"],
+answer:0,
+reference:"حوالہ: سنن ترمذی: 3383"
+},
+
+{
+question:"نبی ﷺ پر درود بھیجنے کی کیا فضیلت ہے؟",
+options:["اللہ کی رحمت نازل ہوتی ہے","کوئی فائدہ نہیں","صرف دنیاوی فائدہ","منع ہے"],
+answer:0,
+reference:"حوالہ: صحیح مسلم: 408"
+},
+
+  
