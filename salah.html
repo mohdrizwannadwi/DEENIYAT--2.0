@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>نماز کا طریقہ | DEENIYAT 2.0</title>
 
-<style>
+<!-- Urdu + Arabic Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+<style>
 
 *{
     box-sizing:border-box;
@@ -21,7 +22,6 @@ body{
     color:#222;
     font-family:"Noto Nastaliq Urdu",
                 "Jameel Noori Nastaleeq",
-                "Noto Naskh Arabic",
                 serif;
     line-height:2.2;
 }
@@ -73,13 +73,14 @@ body{
     border-radius:12px;
     padding:16px;
     margin:15px 0;
-    font-size:22px;
+    font-size:21px;
 }
 
 .reference{
     color:#555;
     font-size:15px;
     margin-top:8px;
+    font-family:"Noto Nastaliq Urdu",serif;
 }
 
 .item{
@@ -91,19 +92,35 @@ body{
     font-size:21px;
 }
 
+/* Number */
 .number{
     color:#769b20;
     font-weight:bold;
     margin-left:8px;
 }
 
+/* Arabic Text */
 .arabic{
     color:#6d48a5;
-    font-weight:bold;
-    font-size:24px;
-    line-height:2.3;
+    font-family:"Noto Naskh Arabic",
+                "Noto Nastaliq Urdu",
+                serif;
+    font-weight:600;
+    font-size:30px;
+    line-height:2.2;
+    text-align:right;
+    direction:rtl;
 }
 
+/* Arabic Dua heading */
+.arabic-title{
+    color:#769b20;
+    font-weight:bold;
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+/* Buttons */
 .buttons{
     display:flex;
     direction:ltr;
@@ -119,6 +136,7 @@ button{
     color:white;
     cursor:pointer;
     font-family:Arial,sans-serif;
+    font-size:16px;
 }
 
 button.share{
@@ -153,7 +171,7 @@ footer{
     }
 
     .arabic{
-        font-size:21px;
+        font-size:27px;
     }
 
 }
@@ -165,109 +183,16 @@ footer{
 
 <header class="header">
 
-<h1>🕌 نماز کا طریقہ</h1>
+    <h1>🕌 نماز کا طریقہ</h1>
 
-<p>
-DEENIYAT 2.0 • Learn • Practice • Live Islam
-</p>
+    <p>
+        DEENIYAT 2.0 • Learn • Practice • Live Islam
+    </p>
 
 </header>
 
 
 <main class="container">
-
-
-<!-- ================= بیان ================= -->
-
-<div class="intro">
-
-<h2 class="section-title">
-نماز کی اہمیت
-</h2>
-
-
-<div class="hadith">
-
-حدیث: اللہ کے رسول ﷺ نے فرمایا:
-<strong>نماز دین کا ستون ہے۔</strong>
-
-<div class="reference">
-[شعب الایمان: 2806، عن عمر رضی اللہ عنہ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">
-Copy
-</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="hadith">
-
-حدیث: اللہ کے رسول ﷺ نے فرمایا:
-<strong>جنت کی کنجی نماز ہے۔</strong>
-
-<div class="reference">
-[مسند احمد: 14678، عن جابر رضی اللہ عنہ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">
-Copy
-</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="hadith">
-
-حدیث: اللہ کے رسول ﷺ نے فرمایا:
-<strong>میری آنکھوں کی ٹھنڈک نماز میں رکھی گئی ہے۔</strong>
-
-<div class="reference">
-[سنن نسائی: 3940، عن انس رضی اللہ عنہ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">
-Copy
-</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<p>
-
-نماز دین کی سب سے اہم عبادت ہے۔
-نماز کی پابندی پر اللہ تعالیٰ نے مغفرت کے وعدے فرمائے ہیں۔
-نماز پڑھنے پر اللہ تعالیٰ اچھی زندگی اور روزی میں برکت عطا فرماتے ہیں۔
-لہٰذا نماز کو سیکھ کر صحیح طریقے پر پڑھنا اور اس کا اہتمام کرنا ہر مسلمان پر ضروری ہے۔
-
-</p>
-
-</div>
 
 
 <!-- ================= نماز کا طریقہ ================= -->
@@ -277,223 +202,71 @@ Share
 </h2>
 
 
-<!-- ================= قیام ================= -->
+<!-- ================= ثناء ================= -->
 
 <h2 class="section-title">
-قیام کا طریقہ:
+ثناء:
 </h2>
 
-
 <div class="item">
 
-<span class="number">۱۔</span>
+    <div class="arabic">
+        سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ،
+        وَتَبَارَكَ اسْمُكَ،
+        وَتَعَالَىٰ جَدُّكَ،
+        وَلَا إِلٰهَ غَيْرُكَ۔
+    </div>
 
-تکبیر تحریمہ کے وقت سیدھا کھڑا ہونا اور سر کو نہ جھکانا۔
+    <div class="reference">
+        [سنن ابی داؤد: 776، جامع ترمذی: 243]
+    </div>
 
-<div class="reference">
-[سورۃ البقرۃ: 238]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
-<div class="item">
-
-<span class="number">۲۔</span>
-
-تکبیر تحریمہ کے وقت دونوں ہاتھوں کو کانوں تک اٹھانا۔
-
-<div class="reference">
-[سنن نسائی، کتاب الصلاۃ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۳۔</span>
-
-انگلیوں کو اپنی حالت پر رکھنا، نہ زیادہ کھلی اور نہ زیادہ بند رکھنا۔
-
-<div class="reference">
-[صحیح ابن خزیمہ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۴۔</span>
-
-دونوں پیروں کے درمیان تقریباً ایک بالشت کا فاصلہ رکھنا اور پیروں کی انگلیاں قبلہ کی طرف رکھنا۔
-
-<div class="reference">
-[سنن ابی داؤد، کتاب الصلاۃ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۵۔</span>
-
-حالت قیام میں نگاہ کو سجدے کی جگہ رکھنا۔
-
-<div class="reference">
-[سنن ابی داؤد، کتاب الصلاۃ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= ہاتھ باندھنے کا طریقہ ================= -->
+<!-- ================= تکبیر تحریمہ ================= -->
 
 <h2 class="section-title">
-ہاتھ باندھنے کا طریقہ:
+تکبیر تحریمہ:
 </h2>
 
-
 <div class="item">
 
-<span class="number">۱۔</span>
+    <span class="number">۱۔</span>
 
-دائیں ہاتھ کی ہتھیلی بائیں ہاتھ کی ہتھیلی کی پشت پر رکھنا۔
+    تکبیر تحریمہ کہتے وقت سیدھا کھڑا ہونا اور سر کو نہ جھکانا۔
 
-<div class="reference">
-[صحیح بخاری، کتاب الاذان]
-</div>
+    <div class="reference">
+        [سورۃ البقرۃ: 238]
+    </div>
 
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
 <div class="item">
 
-<span class="number">۲۔</span>
+    <span class="number">۲۔</span>
 
-چھوٹی انگلی اور انگوٹھے سے حلقہ بنا کر کلائی کو پکڑنا۔
+    تکبیر تحریمہ کے وقت دونوں ہاتھوں کو کانوں تک اٹھانا۔
 
-<div class="reference">
-[سنن ابی داؤد، کتاب الصلاۃ]
-</div>
+    <div class="reference">
+        [سنن نسائی، کتاب الصلاة]
+    </div>
 
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۳۔</span>
-
-باقی تین انگلیوں کو کلائی پر رکھنا۔
-
-<div class="reference">
-[سنن ابی داؤد، کتاب الصلاۃ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۴۔</span>
-
-ناف کے نیچے ہاتھ باندھنا۔
-
-<div class="reference">
-[سنن ابی داؤد، کتاب الصلاۃ]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
@@ -501,420 +274,89 @@ Share
 <!-- ================= رکوع ================= -->
 
 <h2 class="section-title">
-رکوع کا طریقہ:
+رکوع کی تسبیح:
 </h2>
 
-
 <div class="item">
 
-<span class="number">۱۔</span>
+    <div class="arabic">
+        سُبْحَانَ رَبِّيَ الْعَظِيمِ۔
+    </div>
 
-رکوع کی تکبیر کہتے ہوئے رکوع میں جانا۔
+    <div class="reference">
+        [سنن ترمذی: 261، عن حذیفہ رضی اللہ عنہ]
+    </div>
 
-<div class="reference">
-[صحیح بخاری: 789]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۲۔</span>
-
-رکوع میں دونوں ہاتھوں سے گھٹنوں کو پکڑنا۔
-
-<div class="reference">
-[صحیح بخاری: 828]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۳۔</span>
-
-گھٹنوں کو پکڑنے میں انگلیوں کو کھلا رکھنا۔
-
-<div class="reference">
-[سنن ابی داؤد: 863]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۴۔</span>
-
-پیٹھ کو سیدھا رکھنا۔
-
-<div class="reference">
-[سنن ابی داؤد: 859]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۵۔</span>
-
-رکوع میں اطمینان سے ٹھہرنا۔
-
-<div class="reference">
-[صحیح بخاری: 793]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۶۔</span>
-
-رکوع میں کم از کم تین مرتبہ
-<span class="arabic">
-سُبْحَانَ رَبِّيَ الْعَظِيمِ
-</span>
-کہنا۔
-
-<div class="reference">
-[سنن ترمذی: 262]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
 <!-- ================= رکوع سے اٹھنا ================= -->
 
-<div class="item">
-
-<span class="number">۷۔</span>
-
-رکوع سے اٹھتے ہوئے امام کا
-<span class="arabic">
-سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ
-</span>
-اور مقتدی کا
-<span class="arabic">
-رَبَّنَا لَكَ الْحَمْدُ
-</span>
-کہنا۔
-
-<div class="reference">
-[صحیح بخاری: 795، صحیح مسلم: 392]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۸۔</span>
-
-رکوع سے اٹھ کر اطمینان سے بالکل سیدھا کھڑا ہونا۔
-
-<div class="reference">
-[صحیح بخاری: 793، صحیح مسلم: 397]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= سجدے میں جانے کا طریقہ ================= -->
-
 <h2 class="section-title">
-سجدے میں جانے کا طریقہ:
+تسبیح:
 </h2>
 
-
 <div class="item">
 
-<span class="number">۱۔</span>
+    <div class="arabic">
+        سَمِعَ اللّٰهُ لِمَنْ حَمِدَهُ۔
+    </div>
 
-تکبیر کہتے ہوئے سجدے میں جانا۔
+    <div class="reference">
+        [صحیح بخاری: 722، عن ابی ہریرہ رضی اللہ عنہ]
+    </div>
 
-<div class="reference">
-[صحیح بخاری: 789]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
 <div class="item">
 
-<span class="number">۲۔</span>
+    <div class="arabic">
+        رَبَّنَا لَكَ الْحَمْدُ۔
+    </div>
 
-سجدے میں جاتے وقت اطمینان سے سجدہ کرنا۔
+    <div class="reference">
+        [صحیح بخاری: 722، عن ابی ہریرہ رضی اللہ عنہ]
+    </div>
 
-<div class="reference">
-[صحیح بخاری: 793]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
-<div class="item">
-
-<span class="number">۳۔</span>
-
-سجدے میں پیشانی اور ناک زمین پر رکھنا۔
-
-<div class="reference">
-[صحیح بخاری: 812، صحیح مسلم: 490]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= سجدے کا طریقہ ================= -->
+<!-- ================= سجدہ ================= -->
 
 <h2 class="section-title">
-سجدے کا طریقہ:
+سجدے کی تسبیح:
 </h2>
 
-
 <div class="item">
 
-<span class="number">۱۔</span>
+    <div class="arabic">
+        سُبْحَانَ رَبِّيَ الْأَعْلَى۔
+    </div>
 
-سجدے میں دونوں ہاتھوں کو زمین پر رکھنا۔
+    <div class="reference">
+        [سنن ترمذی: 262، عن حذیفہ رضی اللہ عنہ]
+    </div>
 
-<div class="reference">
-[صحیح بخاری: 812]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۲۔</span>
-
-سجدے میں ناک اور پیشانی دونوں کو زمین پر رکھنا۔
-
-<div class="reference">
-[صحیح بخاری: 812، صحیح مسلم: 490]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۳۔</span>
-
-بازوؤں کو پہلوؤں سے الگ رکھنا۔
-
-<div class="reference">
-[صحیح بخاری: 807، صحیح مسلم: 494]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۴۔</span>
-
-سجدے میں کم از کم تین مرتبہ
-<span class="arabic">
-سُبْحَانَ رَبِّيَ الْأَعْلَى
-</span>
-پڑھنا۔
-
-<div class="reference">
-[سنن ترمذی: 262]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= ثناء ================= -->
-
-<h2 class="section-title">
-ثناء:
-</h2>
-
-
-<div class="item">
-
-<div class="arabic">
-
-سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ،
-وَتَبَارَكَ اسْمُكَ،
-وَتَعَالَىٰ جَدُّكَ،
-وَلَا إِلٰهَ غَيْرُكَ۔
-
-</div>
-
-<div class="reference">
-[سنن ابی داؤد: 776، سنن ترمذی: 243]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">
-Copy
-</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
@@ -922,238 +364,104 @@ Share
 <!-- ================= قعدہ ================= -->
 
 <h2 class="section-title">
-قعدہ کا طریقہ:
+قعدہ:
 </h2>
-
-
-<div class="item">
-
-<span class="number">۱۔</span>
-
-دائیں پیر کو کھڑا رکھنا اور بائیں پیر کو بچھا کر اس پر بیٹھنا۔
-
-<div class="reference">
-[صحیح بخاری: 828، صحیح مسلم: 540]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۲۔</span>
-
-دونوں ہاتھ رانوں پر رکھنا۔
-
-<div class="reference">
-[صحیح مسلم: 579]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
 
 
 <!-- ================= تشہد ================= -->
 
-<h2 class="section-title">
-تشہد:
-</h2>
-
-
 <div class="item">
 
-<div class="arabic">
+    <div class="arabic-title">
+        تشہد:
+    </div>
 
-اَلتَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ،
-اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ،
-اَلسَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللّٰهِ الصَّالِحِينَ،
-أَشْهَدُ أَنْ لَّا إِلٰهَ إِلَّا اللّٰهُ،
-وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ۔
+    <div class="arabic">
 
-</div>
+        التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ،
+        السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ،
+        السَّلَامُ عَلَيْنَا وَعَلَىٰ عِبَادِ اللّٰهِ الصَّالِحِينَ،
+        أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ،
+        وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ۔
 
-<div class="reference">
-[صحیح بخاری: 831، صحیح مسلم: 402]
-</div>
+    </div>
 
-<div class="buttons">
+    <div class="reference">
+        [صحیح بخاری: 6265، صحیح مسلم: 402]
+    </div>
 
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
 <!-- ================= درود شریف ================= -->
 
-<h2 class="section-title">
-درود شریف:
-</h2>
-
-
 <div class="item">
 
-<div class="arabic">
+    <div class="arabic-title">
+        درودِ ابراہیمی:
+    </div>
 
-اَللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ،
-كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ،
-إِنَّكَ حَمِيدٌ مَجِيدٌ۔
+    <div class="arabic">
 
-اَللّٰهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ،
-كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ،
-إِنَّكَ حَمِيدٌ مَجِيدٌ۔
+        اللّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ،
+        وَعَلَىٰ آلِ مُحَمَّدٍ،
+        كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ،
+        وَعَلَىٰ آلِ إِبْرَاهِيمَ،
+        إِنَّكَ حَمِيدٌ مَجِيدٌ۔
 
-</div>
+        <br>
 
-<div class="reference">
-[صحیح بخاری: 3370، صحیح مسلم: 406]
-</div>
+        اللّٰهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ،
+        وَعَلَىٰ آلِ مُحَمَّدٍ،
+        كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ،
+        وَعَلَىٰ آلِ إِبْرَاهِيمَ،
+        إِنَّكَ حَمِيدٌ مَجِيدٌ۔
 
-<div class="buttons">
+    </div>
 
-<button onclick="copyText(this)">Copy</button>
+    <div class="reference">
+        [صحیح بخاری: 6357، صحیح مسلم: 406]
+    </div>
 
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
 
 <!-- ================= دعائے مأثورہ ================= -->
 
-<h2 class="section-title">
-دعائے مأثورہ:
-</h2>
-
-
 <div class="item">
 
-<div class="arabic">
+    <div class="arabic-title">
+        دعائے مأثورہ:
+    </div>
 
-اَللّٰهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا،
-وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ،
-فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ،
-وَارْحَمْنِي،
-إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ۔
+    <div class="arabic">
 
-</div>
+        اللّٰهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا،
+        وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ،
+        فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ،
+        وَارْحَمْنِي،
+        إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ۔
 
-<div class="reference">
-[صحیح بخاری: 834، صحیح مسلم: 2705]
-</div>
+    </div>
 
-<div class="buttons">
+    <div class="reference">
+        [صحیح بخاری: 834، صحیح مسلم: 2705]
+    </div>
 
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= سلام ================= -->
-
-<h2 class="section-title">
-سلام پھیرنے کا طریقہ:
-</h2>
-
-
-<div class="item">
-
-<span class="number">۱۔</span>
-
-دونوں طرف سلام پھیرنا۔
-
-<div class="reference">
-[صحیح مسلم: 582]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۲۔</span>
-
-پہلے دائیں طرف سلام پھیرنا پھر بائیں طرف۔
-
-<div class="reference">
-[سنن ابی داؤد: 996، ترمذی: 295]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<span class="number">۳۔</span>
-
-سلام پھیرتے وقت دائیں اور بائیں طرف رخ کرنا۔
-
-<div class="reference">
-[سنن ترمذی: 296]
-</div>
-
-<div class="buttons">
-
-<button onclick="copyText(this)">Copy</button>
-
-<button class="share" onclick="shareText(this)">
-Share
-</button>
-
-</div>
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
@@ -1161,39 +469,102 @@ Share
 <!-- ================= دعائے قنوت ================= -->
 
 <h2 class="section-title">
-وتر کی دعائے قنوت:
+دعائے قنوت:
+</h2>
+
+<div class="item">
+
+    <div class="arabic">
+
+        اللّٰهُمَّ إِنَّا نَسْتَعِينُكَ وَنَسْتَغْفِرُكَ،
+        وَنُؤْمِنُ بِكَ،
+        وَنَتَوَكَّلُ عَلَيْكَ،
+        وَنُثْنِي عَلَيْكَ الْخَيْرَ،
+        كُلَّهُ نَشْكُرُكَ وَلَا نَكْفُرُكَ،
+        وَنَخْلَعُ وَنَتْرُكُ مَنْ يَفْجُرُكَ۔
+
+        <br>
+
+        اللّٰهُمَّ إِيَّاكَ نَعْبُدُ،
+        وَلَكَ نُصَلِّي وَنَسْجُدُ،
+        وَإِلَيْكَ نَسْعَىٰ وَنَحْفِدُ،
+        وَنَرْجُو رَحْمَتَكَ،
+        وَنَخْشَىٰ عَذَابَكَ،
+        إِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ۔
+
+    </div>
+
+    <div class="reference">
+        [دعائے قنوت، سنن بیہقی: 3144؛ مروی عن عمر رضی اللہ عنہ]
+    </div>
+
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
+
+</div>
+
+
+<!-- ================= سلام ================= -->
+
+<h2 class="section-title">
+سلام:
 </h2>
 
 
 <div class="item">
 
-<div class="arabic">
+    <div class="arabic">
 
-اَللّٰهُمَّ إِنَّا نَسْتَعِينُكَ،
-وَنَسْتَغْفِرُكَ،
-وَنُؤْمِنُ بِكَ،
-وَنَتَوَكَّلُ عَلَيْكَ،
-وَنُثْنِي عَلَيْكَ الْخَيْرَ،
-وَنَشْكُرُكَ وَلَا نَكْفُرُكَ،
-وَنَخْلَعُ وَنَتْرُكُ مَنْ يَفْجُرُكَ۔
+        السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ۔
+
+    </div>
+
+    <div class="reference">
+        [جامع ترمذی: 295، عن ابن مسعود رضی اللہ عنہ]
+    </div>
+
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
+
+</div>
+
+
+<div class="item">
+
+    <span class="number">۱۔</span>
+
+    دونوں طرف سلام پھیرنا۔
+
+    <div class="reference">
+        [صحیح مسلم: 582، عن سعد بن ابی وقاص رضی اللہ عنہ]
+    </div>
+
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
-<div class="reference">
-[سنن بیہقی، السنن الکبریٰ: 2/210]
-</div>
 
-<div class="buttons">
+<div class="item">
 
-<button onclick="copyText(this)">
-Copy
-</button>
+    <span class="number">۲۔</span>
 
-<button class="share" onclick="shareText(this)">
-Share
-</button>
+    پہلے دائیں طرف سلام پھیرنا پھر بائیں طرف۔
 
-</div>
+    <div class="reference">
+        [سنن ابی داؤد: 996، عن وائل بن حجر رضی اللہ عنہ]
+    </div>
+
+    <div class="buttons">
+        <button onclick="copyText(this)">Copy</button>
+        <button class="share" onclick="shareText(this)">Share</button>
+    </div>
 
 </div>
 
@@ -1269,5 +640,4 @@ function shareText(button){
 
 
 </body>
-
-    </html>
+</html>
