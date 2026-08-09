@@ -1,186 +1,155 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>اسلامی Quiz | DEENIYAT 2.0</title>
 
 <style>
-*{
-  box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-  margin:0;
-  font-family:
-    "Noto Nastaliq Urdu",
-    "Jameel Noori Nastaleeq",
-    Arial,
-    sans-serif;
-  background:#f4f8f3;
-  color:#111;
+body {
+    margin: 0;
+    background: #f4f8f3;
+    font-family: Arial, sans-serif;
+    color: #123;
 }
 
-header{
-  background:#08713f;
-  color:white;
-  text-align:center;
-  padding:35px 15px 30px;
+header {
+    background: #08733f;
+    color: white;
+    text-align: center;
+    padding: 28px 14px;
 }
 
-header h1{
-  margin:0;
-  color:#ffd400;
-  font-size:42px;
+header h1 {
+    margin: 0;
+    color: #ffd21a;
+    font-size: 38px;
 }
 
-header p{
-  margin:10px 0 0;
-  font-family:Arial,sans-serif;
-  font-size:20px;
+header p {
+    margin: 10px 0 0;
+    font-size: 18px;
 }
 
-.container{
-  max-width:700px;
-  margin:45px auto;
-  padding:0 18px;
+.lang {
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    background: white;
+    color: #08733f;
+    border: 0;
+    border-radius: 20px;
+    padding: 9px 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.quiz-card{
-  background:white;
-  border-radius:25px;
-  padding:28px 22px;
-  box-shadow:0 5px 25px rgba(0,0,0,.08);
+.wrap {
+    max-width: 760px;
+    margin: 38px auto;
+    padding: 0 16px;
 }
 
-.top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:#568c2d;
-  font-size:25px;
-  font-weight:bold;
-  margin-bottom:25px;
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 28px #00000012;
 }
 
-.question{
-  font-size:28px;
-  line-height:2;
-  text-align:right;
-  margin-bottom:25px;
-  font-weight:bold;
+.top {
+    display: flex;
+    justify-content: space-between;
+    color: #5b8f38;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.option{
-  width:100%;
-  padding:17px 15px;
-  margin:12px 0;
-  border:2px solid #16805a;
-  background:white;
-  border-radius:15px;
-  font-size:21px;
-  text-align:right;
-  cursor:pointer;
-  transition:.2s;
+.question {
+    font-size: 29px;
+    line-height: 1.65;
+    margin: 28px 0;
+    text-align: center;
 }
 
-.option:hover{
-  background:#edf8f1;
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
 }
 
-.option.selected{
-  background:#dcefe5;
-  border-color:#08713f;
+.option {
+    border: 2px solid #087c4c;
+    background: #087c4c;
+    color: white;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-.option.correct{
-  background:#c9f3d7;
-  border-color:#14833e;
+.correct {
+    background: #198754 !important;
 }
 
-.option.wrong{
-  background:#ffd6d6;
-  border-color:#d33;
+.wrong {
+    background: #c62828 !important;
 }
 
-.buttons{
-  display:flex;
-  gap:12px;
-  margin-top:25px;
+#next,
+#restart {
+    margin-top: 20px;
+    width: 100%;
+    border: 0;
+    border-radius: 14px;
+    padding: 15px;
+    font-size: 19px;
+    background: #f0b400;
+    color: #111;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-button{
-  font-family:inherit;
+#next:disabled {
+    opacity: .45;
+    cursor: not-allowed;
 }
 
-.nav-btn{
-  flex:1;
-  border:0;
-  border-radius:14px;
-  padding:15px;
-  font-size:20px;
-  cursor:pointer;
-  background:#08713f;
-  color:white;
+.result {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.7;
 }
 
-.nav-btn:disabled{
-  background:#aaa;
-  cursor:not-allowed;
+footer {
+    margin-top: 45px;
+    background: #08733f;
+    color: white;
+    text-align: center;
+    padding: 25px;
 }
 
-#result{
-  display:none;
-  text-align:center;
-}
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 30px;
+    }
 
-.result-title{
-  font-size:34px;
-  color:#08713f;
-  font-weight:bold;
-}
+    .question {
+        font-size: 25px;
+    }
 
-.score{
-  font-size:30px;
-  margin:25px 0;
-}
+    .options {
+        grid-template-columns: 1fr;
+    }
 
-.restart{
-  background:#08713f;
-  color:white;
-  border:0;
-  padding:15px 35px;
-  border-radius:14px;
-  font-size:21px;
-  cursor:pointer;
-}
-
-footer{
-  background:#08713f;
-  color:white;
-  text-align:center;
-  padding:25px;
-  font-family:Arial,sans-serif;
-  font-size:18px;
-}
-
-@media(max-width:600px){
-  header h1{
-    font-size:34px;
-  }
-
-  .question{
-    font-size:24px;
-  }
-
-  .option{
-    font-size:19px;
-  }
-
-  .top{
-    font-size:21px;
-  }
+    .lang {
+        position: static;
+        margin-bottom: 12px;
+    }
 }
 </style>
 </head>
@@ -188,958 +157,1038 @@ footer{
 <body>
 
 <header>
-  <h1>🕌 اسلامی Quiz</h1>
-  <p>DEENIYAT 2.0 • Learn • Practice • Live Islam</p>
+
+<button class="lang" onclick="toggleLang()" id="langBtn">
+English
+</button>
+
+<h1 id="title">🕌 اسلامی Quiz</h1>
+
+<p>
+DEENIYAT 2.0 • Learn • Practice • Live Islam
+</p>
+
 </header>
 
-<div class="container">
+<div class="wrap">
 
-  <div class="quiz-card" id="quizBox">
+<div class="card" id="quizCard">
 
-    <div class="top">
-      <span id="questionNumber">سوال 1 / 100</span>
-      <span id="scoreTop">اسکور: 0</span>
-    </div>
+<div class="top">
+<span id="qnum"></span>
+<span id="score"></span>
+</div>
 
-    <div class="question" id="question">
-      سوال یہاں آئے گا
-    </div>
+<div class="question" id="question"></div>
 
-    <div id="options"></div>
+<div class="options" id="options"></div>
 
-    <div class="buttons">
-      <button class="nav-btn" id="backBtn" onclick="previousQuestion()">
-        پچھلا
-      </button>
+<button id="next" onclick="nextQuestion()" disabled>
+اگلا سوال
+</button>
 
-      <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">
-        اگلا
-      </button>
-    </div>
-
-  </div>
-
-  <div class="quiz-card" id="result">
-
-    <div class="result-title">
-      🎉 Quiz مکمل ہوگیا!
-    </div>
-
-    <div class="score" id="finalScore"></div>
-
-    <p id="resultMessage" style="font-size:22px;"></p>
-
-    <button class="restart" onclick="restartQuiz()">
-      دوبارہ شروع کریں
-    </button>
-
-  </div>
+</div>
 
 </div>
 
 <footer>
-  DEENIYAT 2.0 © 2026
+DEENIYAT 2.0 © 2026
 </footer>
 
 
 <script>
 
-/* =========================================
-   100 اسلامی سوالات
-   answer = صحیح جواب کا نمبر
-   0 = پہلا option
-   1 = دوسرا option
-   2 = تیسرا option
-   3 = چوتھا option
-========================================= */
+/* =========================
+   QUIZ QUESTIONS
+========================= */
 
 const questions = [
 
 {
- question:"اسلام کے کتنے ارکان ہیں؟",
- options:["3","4","5","6"],
- answer:2
+u:"اسلام کے کتنے ارکان ہیں؟",
+e:"How many pillars of Islam are there?",
+ou:["3","4","5","6"],
+oe:["3","4","5","6"],
+a:2
 },
 
 {
- question:"اسلام کا پہلا رکن کیا ہے؟",
- options:["نماز","روزہ","کلمہ شہادت","زکوٰۃ"],
- answer:2
+u:"ایمان کے کتنے ارکان ہیں؟",
+e:"How many articles of faith are there?",
+ou:["4","5","6","7"],
+oe:["4","5","6","7"],
+a:2
 },
 
 {
- question:"ایمان کے کتنے ارکان ہیں؟",
- options:["4","5","6","7"],
- answer:2
+u:"اسلام کی پہلی بنیاد کیا ہے؟",
+e:"What is the first pillar of Islam?",
+ou:["نماز","زکوٰۃ","کلمۂ شہادت","روزہ"],
+oe:["Prayer","Zakat","Shahadah","Fasting"],
+a:2
 },
 
 {
- question:"قرآن مجید کس مہینے میں نازل ہونا شروع ہوا؟",
- options:["محرم","رمضان","شوال","ذوالحجہ"],
- answer:1
+u:"ایک دن میں کتنی فرض نمازیں ہیں؟",
+e:"How many obligatory prayers are there each day?",
+ou:["3","4","5","6"],
+oe:["3","4","5","6"],
+a:2
 },
 
 {
- question:"قرآن مجید میں کتنی سورتیں ہیں؟",
- options:["110","112","114","116"],
- answer:2
+u:"رمضان کے روزے کس مہینے میں رکھے جاتے ہیں؟",
+e:"In which month are the obligatory fasts observed?",
+ou:["محرم","رمضان","شوال","رجب"],
+oe:["Muharram","Ramadan","Shawwal","Rajab"],
+a:1
 },
 
 {
- question:"قرآن مجید کی پہلی سورت کون سی ہے؟",
- options:["البقرہ","الفاتحہ","الناس","الاخلاص"],
- answer:1
+u:"زکوٰۃ اسلام کا کون سا رکن ہے؟",
+e:"Which pillar of Islam is Zakat?",
+ou:["پہلا","دوسرا","تیسرا","چوتھا"],
+oe:["First","Second","Third","Fourth"],
+a:2
 },
 
 {
- question:"قرآن مجید کی سب سے بڑی سورت کون سی ہے؟",
- options:["آل عمران","النساء","البقرہ","یٰسین"],
- answer:2
+u:"حج کس اسلامی مہینے میں ادا کیا جاتا ہے؟",
+e:"In which Islamic month is Hajj performed?",
+ou:["ذوالحجہ","محرم","رمضان","شوال"],
+oe:["Dhul-Hijjah","Muharram","Ramadan","Shawwal"],
+a:0
 },
 
 {
- question:"قرآن مجید کی سب سے چھوٹی سورت کون سی ہے؟",
- options:["الکوثر","الفلق","الناس","العصر"],
- answer:0
+u:"قرآن مجید کس نبی پر نازل ہوا؟",
+e:"To which Prophet was the Quran revealed?",
+ou:["حضرت موسیٰؑ","حضرت عیسیٰؑ","حضرت محمد ﷺ","حضرت ابراہیمؑ"],
+oe:["Prophet Musa","Prophet Isa","Prophet Muhammad","Prophet Ibrahim"],
+a:2
 },
 
 {
- question:"قرآن مجید کس زبان میں نازل ہوا؟",
- options:["فارسی","عربی","اردو","عبرانی"],
- answer:1
+u:"قرآن مجید میں کتنی سورتیں ہیں؟",
+e:"How many surahs are in the Quran?",
+ou:["110","112","114","116"],
+oe:["110","112","114","116"],
+a:2
 },
 
 {
- question:"قرآن مجید کس نبی ﷺ پر نازل ہوا؟",
- options:["حضرت موسیٰؑ","حضرت عیسیٰؑ","حضرت محمد ﷺ","حضرت ابراہیمؑ"],
- answer:2
+u:"قرآن مجید کی پہلی سورت کون سی ہے؟",
+e:"Which is the first surah of the Quran?",
+ou:["البقرہ","الفاتحہ","الاخلاص","الناس"],
+oe:["Al-Baqarah","Al-Fatihah","Al-Ikhlas","An-Nas"],
+a:1
 },
 
 {
- question:"وحی لے کر کون سے فرشتے نبی ﷺ کے پاس آتے تھے؟",
- options:["میکائیلؑ","اسرافیلؑ","جبرائیلؑ","عزرائیلؑ"],
- answer:2
+u:"قرآن مجید کی سب سے بڑی سورت کون سی ہے؟",
+e:"Which is the longest surah of the Quran?",
+ou:["آل عمران","النساء","البقرہ","المائدہ"],
+oe:["Aal-e-Imran","An-Nisa","Al-Baqarah","Al-Ma'idah"],
+a:2
 },
 
 {
- question:"اسلام میں دن میں کتنی فرض نمازیں ہیں؟",
- options:["3","4","5","6"],
- answer:2
+u:"قرآن مجید کی سب سے چھوٹی سورت کون سی ہے؟",
+e:"Which is the shortest surah of the Quran?",
+ou:["الکوثر","العصر","الناس","الفلق"],
+oe:["Al-Kawthar","Al-Asr","An-Nas","Al-Falaq"],
+a:0
 },
 
 {
- question:"فجر کی فرض رکعتیں کتنی ہیں؟",
- options:["2","3","4","5"],
- answer:0
+u:"قرآن مجید کس زبان میں نازل ہوا؟",
+e:"In which language was the Quran revealed?",
+ou:["فارسی","عربی","اردو","عبرانی"],
+oe:["Persian","Arabic","Urdu","Hebrew"],
+a:1
 },
 
 {
- question:"ظہر کی فرض رکعتیں کتنی ہیں؟",
- options:["2","3","4","5"],
- answer:2
+u:"پہلی وحی کہاں نازل ہوئی؟",
+e:"Where did the first revelation come?",
+ou:["غارِ ثور","غارِ حرا","مدینہ","مسجد نبوی"],
+oe:["Cave of Thawr","Cave of Hira","Madinah","Prophet's Mosque"],
+a:1
 },
 
 {
- question:"عصر کی فرض رکعتیں کتنی ہیں؟",
- options:["2","3","4","5"],
- answer:2
+u:"پہلی وحی کے ابتدائی الفاظ کیا تھے؟",
+e:"What were the opening words of the first revelation?",
+ou:["الحمدللہ","اقرأ","سبحان اللہ","اللہ اکبر"],
+oe:["Alhamdulillah","Iqra","SubhanAllah","Allahu Akbar"],
+a:1
 },
 
 {
- question:"مغرب کی فرض رکعتیں کتنی ہیں؟",
- options:["2","3","4","5"],
- answer:1
+u:"نبی کریم ﷺ کی ولادت کس شہر میں ہوئی؟",
+e:"In which city was Prophet Muhammad born?",
+ou:["مدینہ","مکہ","طائف","دمشق"],
+oe:["Madinah","Makkah","Taif","Damascus"],
+a:1
 },
 
 {
- question:"عشاء کی فرض رکعتیں کتنی ہیں؟",
- options:["2","3","4","5"],
- answer:2
+u:"نبی کریم ﷺ نے ہجرت کس شہر کی طرف کی؟",
+e:"To which city did the Prophet migrate?",
+ou:["مکہ","مدینہ","طائف","بصرہ"],
+oe:["Makkah","Madinah","Taif","Basra"],
+a:1
 },
 
 {
- question:"نماز اسلام کا کون سا رکن ہے؟",
- options:["پہلا","دوسرا","تیسرا","چوتھا"],
- answer:1
+u:"ہجری کیلنڈر کس واقعے سے شروع ہوتا ہے؟",
+e:"What event marks the beginning of the Hijri calendar?",
+ou:["فتح مکہ","ہجرت","غزوہ بدر","ولادت"],
+oe:["Conquest of Makkah","Hijrah","Battle of Badr","Birth"],
+a:1
 },
 
 {
- question:"روزہ اسلام کا کون سا رکن ہے؟",
- options:["دوسرا","تیسرا","چوتھا","پانچواں"],
- answer:2
+u:"اسلامی سال کا پہلا مہینہ کون سا ہے؟",
+e:"What is the first month of the Islamic year?",
+ou:["رمضان","محرم","صفر","رجب"],
+oe:["Ramadan","Muharram","Safar","Rajab"],
+a:1
 },
 
 {
- question:"زکوٰۃ اسلام کا کون سا رکن ہے؟",
- options:["دوسرا","تیسرا","چوتھا","پانچواں"],
- answer:1
+u:"اسلامی سال کا آخری مہینہ کون سا ہے؟",
+e:"What is the last month of the Islamic year?",
+ou:["ذوالقعدہ","شوال","ذوالحجہ","محرم"],
+oe:["Dhul-Qi'dah","Shawwal","Dhul-Hijjah","Muharram"],
+a:2
 },
 
 {
- question:"حج اسلام کا کون سا رکن ہے؟",
- options:["دوسرا","تیسرا","چوتھا","پانچواں"],
- answer:3
+u:"عید الفطر کس عبادت کے بعد آتی ہے؟",
+e:"Eid al-Fitr comes after which act of worship?",
+ou:["حج","رمضان کے روزے","قربانی","اعتکاف"],
+oe:["Hajj","Fasting in Ramadan","Sacrifice","I'tikaf"],
+a:1
 },
 
 {
- question:"حج کس اسلامی مہینے میں ادا کیا جاتا ہے؟",
- options:["رمضان","شوال","ذوالقعدہ","ذوالحجہ"],
- answer:3
+u:"عید الاضحی کس اسلامی مہینے میں ہوتی ہے؟",
+e:"In which Islamic month is Eid al-Adha?",
+ou:["رمضان","محرم","ذوالحجہ","شعبان"],
+oe:["Ramadan","Muharram","Dhul-Hijjah","Sha'ban"],
+a:2
 },
 
 {
- question:"کعبہ شریف کس شہر میں ہے؟",
- options:["مدینہ","مکہ","طائف","دمشق"],
- answer:1
+u:"نماز فجر کے فرض کتنے ہیں؟",
+e:"How many obligatory rak'ahs are in Fajr prayer?",
+ou:["2","3","4","5"],
+oe:["2","3","4","5"],
+a:0
 },
 
 {
- question:"مسجد نبوی ﷺ کس شہر میں ہے؟",
- options:["مکہ","مدینہ","طائف","بغداد"],
- answer:1
+u:"نماز ظہر کے فرض کتنے ہیں؟",
+e:"How many obligatory rak'ahs are in Dhuhr prayer?",
+ou:["2","3","4","5"],
+oe:["2","3","4","5"],
+a:2
 },
 
 {
- question:"مسجد الحرام کس شہر میں ہے؟",
- options:["مدینہ","مکہ","بیت المقدس","طائف"],
- answer:1
+u:"نماز عصر کے فرض کتنے ہیں؟",
+e:"How many obligatory rak'ahs are in Asr prayer?",
+ou:["2","3","4","5"],
+oe:["2","3","4","5"],
+a:2
 },
 
 {
- question:"مسجد اقصیٰ کس شہر میں ہے؟",
- options:["مکہ","مدینہ","بیت المقدس","طائف"],
- answer:2
+u:"نماز مغرب کے فرض کتنے ہیں؟",
+e:"How many obligatory rak'ahs are in Maghrib prayer?",
+ou:["2","3","4","5"],
+oe:["2","3","4","5"],
+a:1
 },
 
 {
- question:"ہجری کیلنڈر کس واقعے سے شروع ہوا؟",
- options:["فتح مکہ","ہجرت مدینہ","غزوۂ بدر","نزول قرآن"],
- answer:1
+u:"نماز عشاء کے فرض کتنے ہیں؟",
+e:"How many obligatory rak'ahs are in Isha prayer?",
+ou:["2","3","4","5"],
+oe:["2","3","4","5"],
+a:2
 },
 
 {
- question:"نبی کریم ﷺ کی پیدائش کس شہر میں ہوئی؟",
- options:["مدینہ","مکہ","طائف","شام"],
- answer:1
+u:"نماز میں قبلہ کس طرف ہے؟",
+e:"Which direction is the Qiblah?",
+ou:["بیت المقدس","خانہ کعبہ","مسجد نبوی","غار حرا"],
+oe:["Bayt al-Maqdis","The Ka'bah","Prophet's Mosque","Cave of Hira"],
+a:1
 },
 
 {
- question:"نبی کریم ﷺ کے والد کا نام کیا تھا؟",
- options:["ابوطالب","عبداللہ","عبدالمطلب","حمزہ"],
- answer:1
+u:"مسجد الحرام کس شہر میں ہے؟",
+e:"In which city is Masjid al-Haram?",
+ou:["مدینہ","مکہ","طائف","جدہ"],
+oe:["Madinah","Makkah","Taif","Jeddah"],
+a:1
 },
 
 {
- question:"نبی کریم ﷺ کی والدہ کا نام کیا تھا؟",
- options:["آمنہ","حلیمہ","خدیجہ","فاطمہ"],
- answer:0
+u:"مسجد نبوی کس شہر میں ہے؟",
+e:"In which city is Al-Masjid an-Nabawi?",
+ou:["مکہ","مدینہ","طائف","بغداد"],
+oe:["Makkah","Madinah","Taif","Baghdad"],
+a:1
 },
 
 {
- question:"نبی کریم ﷺ کے دادا کا نام کیا تھا؟",
- options:["ابوطالب","عبدالمطلب","عبداللہ","عباس"],
- answer:1
+u:"مسجد اقصیٰ کہاں واقع ہے؟",
+e:"Where is Al-Masjid al-Aqsa located?",
+ou:["مکہ","مدینہ","القدس","قاہرہ"],
+oe:["Makkah","Madinah","Jerusalem","Cairo"],
+a:2
 },
 
 {
- question:"نبی کریم ﷺ کی پہلی زوجہ محترمہ کون تھیں؟",
- options:["حضرت عائشہؓ","حضرت حفصہؓ","حضرت خدیجہؓ","حضرت فاطمہؓ"],
- answer:2
+u:"کعبہ کس مسجد میں واقع ہے؟",
+e:"In which mosque is the Ka'bah located?",
+ou:["مسجد نبوی","مسجد اقصیٰ","مسجد الحرام","مسجد قبا"],
+oe:["Prophet's Mosque","Al-Aqsa Mosque","Masjid al-Haram","Quba Mosque"],
+a:2
 },
 
 {
- question:"نبی کریم ﷺ پر پہلی وحی کہاں نازل ہوئی؟",
- options:["غار ثور","غار حرا","مسجد نبوی","میدان عرفات"],
- answer:1
+u:"اسلام میں سب سے مقدس شہر کون سا ہے؟",
+e:"Which is the holiest city in Islam?",
+ou:["مدینہ","مکہ","طائف","دمشق"],
+oe:["Madinah","Makkah","Taif","Damascus"],
+a:1
 },
 
 {
- question:"غار حرا کس پہاڑ میں ہے؟",
- options:["جبل نور","جبل احد","جبل رحمت","جبل ثور"],
- answer:0
+u:"وضو میں چہرہ دھونا کیا ہے؟",
+e:"What is washing the face in wudu?",
+ou:["فرض","سنت","مستحب","مکروہ"],
+oe:["Obligatory","Sunnah","Recommended","Disliked"],
+a:0
 },
 
 {
- question:"ہجرت کے سفر میں نبی ﷺ نے کس غار میں قیام فرمایا؟",
- options:["غار حرا","غار ثور","غار احد","غار نور"],
- answer:1
+u:"تیمم کب کیا جا سکتا ہے؟",
+e:"When may tayammum be performed?",
+ou:["ہر وقت","جب پانی دستیاب نہ ہو یا استعمال ممکن نہ ہو","صرف عید پر","صرف سفر میں"],
+oe:["Any time","When water is unavailable or cannot be used","Only on Eid","Only while traveling"],
+a:1
 },
 
 {
- question:"ہجرت مکہ سے کس شہر کی طرف ہوئی؟",
- options:["طائف","مدینہ","شام","بصرہ"],
- answer:1
+u:"اذان کس عبادت کے لیے بلاتی ہے؟",
+e:"What does the adhan call people to?",
+ou:["روزہ","نماز","حج","زکوٰۃ"],
+oe:["Fasting","Prayer","Hajj","Zakat"],
+a:1
 },
 
 {
- question:"اسلام کی پہلی مسجد کون سی ہے؟",
- options:["مسجد نبوی","مسجد قبا","مسجد الحرام","مسجد اقصیٰ"],
- answer:1
+u:"روزہ کس وقت شروع ہوتا ہے؟",
+e:"When does the fast begin?",
+ou:["غروب آفتاب","فجر کے طلوع ہونے سے","ظہر","عصر"],
+oe:["Sunset","At dawn/Fajr","Dhuhr","Asr"],
+a:1
 },
 
 {
- question:"اسلام کی پہلی مسجد کون سی تھی جس کی بنیاد تقویٰ پر رکھی گئی؟",
- options:["مسجد قبا","مسجد نبوی","مسجد الحرام","مسجد اقصیٰ"],
- answer:0
+u:"روزہ کس وقت ختم ہوتا ہے؟",
+e:"When does the fast end?",
+ou:["فجر","ظہر","غروب آفتاب","عشاء"],
+oe:["Fajr","Dhuhr","Sunset","Isha"],
+a:2
 },
 
 {
- question:"نبی ﷺ نے مدینہ میں کون سی مسجد تعمیر فرمائی؟",
- options:["مسجد اقصیٰ","مسجد نبوی","مسجد قبا","مسجد کوفہ"],
- answer:1
+u:"سحری کب کی جاتی ہے؟",
+e:"When is suhoor eaten?",
+ou:["فجر سے پہلے","مغرب کے بعد","ظہر کے بعد","عشاء کے بعد"],
+oe:["Before Fajr","After Maghrib","After Dhuhr","After Isha"],
+a:0
 },
 
 {
- question:"اسلام کی پہلی بڑی جنگ کون سی تھی؟",
- options:["احد","بدر","خندق","خیبر"],
- answer:1
+u:"افطار کب کیا جاتا ہے؟",
+e:"When is iftar made?",
+ou:["فجر پر","غروب آفتاب کے بعد","ظہر پر","سحری کے وقت"],
+oe:["At Fajr","At sunset","At Dhuhr","At suhoor time"],
+a:1
 },
 
 {
- question:"غزوۂ بدر کس ہجری سال ہوا؟",
- options:["1 ہجری","2 ہجری","3 ہجری","4 ہجری"],
- answer:1
+u:"صدقہ کیا ہے؟",
+e:"What is sadaqah?",
+ou:["صرف فرض عبادت","رضاکارانہ خیرات/نیکی","صرف حج","صرف روزہ"],
+oe:["Only an obligatory act","Voluntary charity/good deed","Only Hajj","Only fasting"],
+a:1
 },
 
 {
- question:"غزوۂ احد کس ہجری سال ہوا؟",
- options:["2 ہجری","3 ہجری","4 ہجری","5 ہجری"],
- answer:1
+u:"اسلام میں جھوٹ بولنے کا کیا حکم ہے؟",
+e:"What is the ruling on lying in Islam?",
+ou:["جائز","حرام","فرض","سنت"],
+oe:["Permissible","Forbidden","Obligatory","Sunnah"],
+a:1
 },
 
 {
- question:"غزوۂ خندق کو ایک اور کس نام سے جانا جاتا ہے؟",
- options:["غزوۂ احزاب","غزوۂ بدر","غزوۂ تبوک","غزوۂ حنین"],
- answer:0
+u:"والدین کے ساتھ کیسا سلوک کرنا چاہیے؟",
+e:"How should Muslims treat their parents?",
+ou:["بدسلوکی","حسنِ سلوک","غصہ","نظرانداز"],
+oe:["Badly","With kindness","Angrily","By ignoring them"],
+a:1
 },
 
 {
- question:"فتح مکہ کس ہجری سال ہوئی؟",
- options:["6 ہجری","7 ہجری","8 ہجری","9 ہجری"],
- answer:2
+u:"اسلام میں غیبت کیا ہے؟",
+e:"What is gheebah in Islam?",
+ou:["کسی کی غیر موجودگی میں اس کا ذکر اس طرح کرنا جو اسے ناپسند ہو","مدد کرنا","سلام کرنا","صدقہ دینا"],
+oe:["Mentioning someone in their absence in a way they dislike","Helping","Greeting","Giving charity"],
+a:0
 },
 
 {
- question:"نبی کریم ﷺ نے آخری حج کس نام سے ادا فرمایا؟",
- options:["حج تمتع","حج افراد","حجۃ الوداع","حج قران"],
- answer:2
+u:"تکبر کا کیا حکم ہے؟",
+e:"What is the ruling on arrogance?",
+ou:["پسندیدہ","مذموم","فرض","سنت"],
+oe:["Praiseworthy","Blameworthy","Obligatory","Sunnah"],
+a:1
 },
 
 {
- question:"نبی کریم ﷺ کی وفات کس شہر میں ہوئی؟",
- options:["مکہ","مدینہ","طائف","شام"],
- answer:1
+u:"سلام کا جواب دینا کیسا ہے؟",
+e:"How should a Muslim respond to a greeting of salam?",
+ou:["غلط","اچھے طریقے سے جواب دینا چاہیے","صرف سفر میں","ضروری نہیں"],
+oe:["Wrong","It should be returned properly","Only while traveling","Not needed"],
+a:1
 },
 
 {
- question:"نبی کریم ﷺ کی عمر مبارک وفات کے وقت کتنی تھی؟",
- options:["60 سال","61 سال","63 سال","65 سال"],
- answer:2
+u:"حضرت آدمؑ کو کیا کہا جاتا ہے؟",
+e:"What is Adam called in Islamic tradition?",
+ou:["اول انسان","آخری نبی","فرشتہ","بادشاہ"],
+oe:["First human","Last Prophet","Angel","King"],
+a:0
 },
 
 {
- question:"نبی کریم ﷺ کے کتنے صاحبزادے تھے؟",
- options:["1","2","3","4"],
- answer:2
+u:"حضرت نوحؑ کی کشتی کس واقعے سے متعلق ہے؟",
+e:"What is Prophet Nuh's ark associated with?",
+ou:["طوفان","ہجرت","فتح مکہ","غزوہ بدر"],
+oe:["The Flood","Hijrah","Conquest of Makkah","Battle of Badr"],
+a:0
 },
 
 {
- question:"نبی کریم ﷺ کی سب سے چھوٹی صاحبزادی کون تھیں؟",
- options:["حضرت زینبؓ","حضرت رقیہؓ","حضرت ام کلثومؓ","حضرت فاطمہؓ"],
- answer:3
+u:"حضرت ابراہیمؑ کو کس لقب سے یاد کیا جاتا ہے؟",
+e:"By what title is Prophet Ibrahim known?",
+ou:["خلیل اللہ","روح اللہ","کلیم اللہ","صفی اللہ"],
+oe:["Khalilullah","Ruhullah","Kalimullah","Safiyullah"],
+a:0
 },
 
 {
- question:"حضرت ابوبکر صدیقؓ کون سے خلیفہ تھے؟",
- options:["پہلے","دوسرے","تیسرے","چوتھے"],
- answer:0
+u:"حضرت موسیٰؑ پر کون سی کتاب نازل ہوئی؟",
+e:"Which scripture was revealed to Prophet Musa?",
+ou:["زبور","تورات","انجیل","قرآن"],
+oe:["Zabur","Tawrat","Injil","Quran"],
+a:1
 },
 
 {
- question:"حضرت عمر فاروقؓ کون سے خلیفہ تھے؟",
- options:["پہلے","دوسرے","تیسرے","چوتھے"],
- answer:1
+u:"حضرت داؤدؑ پر کون سی کتاب نازل ہوئی؟",
+e:"Which scripture was revealed to Prophet Dawud?",
+ou:["زبور","تورات","انجیل","قرآن"],
+oe:["Zabur","Tawrat","Injil","Quran"],
+a:0
 },
 
 {
- question:"حضرت عثمان غنیؓ کون سے خلیفہ تھے؟",
- options:["پہلے","دوسرے","تیسرے","چوتھے"],
- answer:2
+u:"حضرت عیسیٰؑ پر کون سی کتاب نازل ہوئی؟",
+e:"Which scripture was revealed to Prophet Isa?",
+ou:["زبور","تورات","انجیل","قرآن"],
+oe:["Zabur","Tawrat","Injil","Quran"],
+a:2
 },
 
 {
- question:"حضرت علیؓ کون سے خلیفہ تھے؟",
- options:["پہلے","دوسرے","تیسرے","چوتھے"],
- answer:3
+u:"فرشتے کس چیز سے پیدا کیے گئے؟",
+e:"According to Islamic teachings, angels were created from what?",
+ou:["آگ","نور","مٹی","پانی"],
+oe:["Fire","Light","Clay","Water"],
+a:1
 },
 
 {
- question:"اسلام کے پہلے مؤذن کون تھے؟",
- options:["حضرت بلالؓ","حضرت عمرؓ","حضرت عثمانؓ","حضرت ابوذرؓ"],
- answer:0
+u:"جنات کس چیز سے پیدا کیے گئے؟",
+e:"According to Islamic teachings, jinn were created from what?",
+ou:["آگ","نور","مٹی","برف"],
+oe:["Fire","Light","Clay","Ice"],
+a:0
 },
 
 {
- question:"اذان میں کتنی مرتبہ اللہ اکبر کہا جاتا ہے؟",
- options:["2","4","6","8"],
- answer:1
+u:"قیامت پر ایمان کس کا حصہ ہے؟",
+e:"Belief in the Day of Judgment is part of what?",
+ou:["اسلامی عقیدہ","تجارت","سفر","کھانا"],
+oe:["Islamic faith","Trade","Travel","Food"],
+a:0
 },
 
 {
- question:"روزہ کس اسلامی مہینے میں فرض ہے؟",
- options:["شعبان","رمضان","شوال","محرم"],
- answer:1
+u:"نبی کریم ﷺ آخری نبی ہیں؟",
+e:"Is Prophet Muhammad the final Prophet?",
+ou:["جی ہاں","نہیں","معلوم نہیں","صرف عربوں کے لیے"],
+oe:["Yes","No","Unknown","Only for Arabs"],
+a:0
 },
 
 {
- question:"روزہ کس وقت سے شروع ہوتا ہے؟",
- options:["طلوع آفتاب","فجر","ظہر","عصر"],
- answer:1
+u:"نبی کریم ﷺ کے والد کا نام کیا تھا؟",
+e:"What was the name of the Prophet's father?",
+ou:["عبداللہ","ابوطالب","عبدالمطلب","حمزہ"],
+oe:["Abdullah","Abu Talib","Abdul-Muttalib","Hamzah"],
+a:0
 },
 
 {
- question:"روزہ کس وقت ختم کیا جاتا ہے؟",
- options:["ظہر","عصر","غروب آفتاب","عشاء"],
- answer:2
+u:"نبی کریم ﷺ کی والدہ کا نام کیا تھا؟",
+e:"What was the name of the Prophet's mother?",
+ou:["آمنہ","خدیجہ","عائشہ","فاطمہ"],
+oe:["Aminah","Khadijah","Aishah","Fatimah"],
+a:0
 },
 
 {
- question:"رمضان کے بعد کون سا مہینہ آتا ہے؟",
- options:["شوال","ذوالقعدہ","شعبان","محرم"],
- answer:0
+u:"نبی کریم ﷺ کی پہلی زوجہ کون تھیں؟",
+e:"Who was the first wife of Prophet Muhammad?",
+ou:["حضرت عائشہؓ","حضرت خدیجہؓ","حضرت حفصہؓ","حضرت صفیہؓ"],
+oe:["Aishah","Khadijah","Hafsah","Safiyyah"],
+a:1
 },
 
 {
- question:"عید الفطر کس مہینے کی پہلی تاریخ کو ہوتی ہے؟",
- options:["رمضان","شوال","ذوالحجہ","محرم"],
- answer:1
+u:"حضرت ابوبکرؓ کون تھے؟",
+e:"Who was Abu Bakr?",
+ou:["صحابی اور پہلے خلیفہ","نبی","فرشتہ","بادشاہ"],
+oe:["A Companion and first caliph","A Prophet","An angel","A king"],
+a:0
 },
 
 {
- question:"عید الاضحیٰ کس مہینے میں ہوتی ہے؟",
- options:["شوال","ذوالقعدہ","ذوالحجہ","محرم"],
- answer:2
+u:"حضرت عمرؓ کون تھے؟",
+e:"Who was Umar ibn al-Khattab?",
+ou:["دوسرے خلیفہ راشد","نبی","فرشتہ","بادشاہ"],
+oe:["Second Rightly Guided Caliph","A Prophet","An angel","A king"],
+a:0
 },
 
 {
- question:"قربانی کس اسلامی تاریخ کو شروع ہوتی ہے؟",
- options:["1 ذوالحجہ","8 ذوالحجہ","9 ذوالحجہ","10 ذوالحجہ"],
- answer:3
+u:"حضرت عثمانؓ کون تھے؟",
+e:"Who was Uthman ibn Affan?",
+ou:["تیسرے خلیفہ راشد","نبی","فرشتہ","بادشاہ"],
+oe:["Third Rightly Guided Caliph","A Prophet","An angel","A king"],
+a:0
 },
 
 {
- question:"عرفہ کا دن کس تاریخ کو ہوتا ہے؟",
- options:["8 ذوالحجہ","9 ذوالحجہ","10 ذوالحجہ","11 ذوالحجہ"],
- answer:1
+u:"حضرت علیؓ کون تھے؟",
+e:"Who was Ali ibn Abi Talib?",
+ou:["چوتھے خلیفہ راشد","نبی","فرشتہ","بادشاہ"],
+oe:["Fourth Rightly Guided Caliph","A Prophet","An angel","A king"],
+a:0
 },
 
 {
- question:"زکوٰۃ کا لغوی مفہوم کیا ہے؟",
- options:["پاکیزگی","سفر","تجارت","عبادت"],
- answer:0
+u:"غزوہ بدر کب ہوا؟",
+e:"When did the Battle of Badr take place?",
+ou:["2 ہجری","3 ہجری","5 ہجری","8 ہجری"],
+oe:["2 AH","3 AH","5 AH","8 AH"],
+a:0
 },
 
 {
- question:"صدقہ کس نیت سے دینا چاہیے؟",
- options:["دکھاوے کے لیے","اللہ کی رضا کے لیے","شہرت کے لیے","فخر کے لیے"],
- answer:1
+u:"فتح مکہ کس ہجری سال میں ہوئی؟",
+e:"In which Hijri year did the Conquest of Makkah occur?",
+ou:["2 ہجری","5 ہجری","8 ہجری","10 ہجری"],
+oe:["2 AH","5 AH","8 AH","10 AH"],
+a:2
 },
 
 {
- question:"اسلام میں سود کا کیا حکم ہے؟",
- options:["جائز","مستحب","حرام","مباح"],
- answer:2
+u:"ہجرت کے سفر میں نبی کریم ﷺ کے ساتھی کون تھے؟",
+e:"Who accompanied the Prophet during the Hijrah journey?",
+ou:["حضرت ابوبکرؓ","حضرت عمرؓ","حضرت عثمانؓ","حضرت علیؓ"],
+oe:["Abu Bakr","Umar","Uthman","Ali"],
+a:0
 },
 
 {
- question:"جھوٹ بولنے کا کیا حکم ہے؟",
- options:["جائز","مکروہ","حرام","مستحب"],
- answer:2
+u:"غارِ ثور کس واقعے سے متعلق ہے؟",
+e:"The Cave of Thawr is associated with which event?",
+ou:["ہجرت","غزوہ بدر","فتح مکہ","حج"],
+oe:["Hijrah","Battle of Badr","Conquest of Makkah","Hajj"],
+a:0
 },
 
 {
- question:"غیبت کیا ہے؟",
- options:["کسی کی تعریف کرنا","کسی کی غیر موجودگی میں اس کی برائی بیان کرنا","دعا کرنا","سلام کرنا"],
- answer:1
+u:"مسجد قبا کس شہر میں ہے؟",
+e:"In which city is Quba Mosque?",
+ou:["مکہ","مدینہ","طائف","دمشق"],
+oe:["Makkah","Madinah","Taif","Damascus"],
+a:1
 },
 
 {
- question:"والدین کے ساتھ کیسا سلوک کرنا چاہیے؟",
- options:["برا سلوک","حسن سلوک","غصہ","قطع تعلق"],
- answer:1
+u:"نماز میں رکوع کے بعد کیا کیا جاتا ہے؟",
+e:"What comes after ruku in prayer?",
+ou:["سجود","قیام","سلام","اذان"],
+oe:["Sujud","Standing","Salam","Adhan"],
+a:1
 },
 
 {
- question:"سلام کا جواب دینا کیسا ہے؟",
- options:["ممنوع","فرض/واجب کے درجے میں","حرام","مکروہ"],
- answer:1
+u:"رکوع کے بعد کھڑے ہونے کو کیا کہتے ہیں؟",
+e:"What is standing after ruku called?",
+ou:["قومہ","جلسہ","قعدہ","تکبیر"],
+oe:["Qawmah","Jalsah","Qa'dah","Takbir"],
+a:0
 },
 
 {
- question:"مسلمان کو دوسرے مسلمان کے ساتھ کیا کرنا چاہیے؟",
- options:["دھوکا دینا","حسن سلوک کرنا","غیبت کرنا","ظلم کرنا"],
- answer:1
+u:"دو سجدوں کے درمیان بیٹھنے کو کیا کہتے ہیں؟",
+e:"What is sitting between the two prostrations called?",
+ou:["جلسہ","رکوع","قیام","اذان"],
+oe:["Jalsah","Ruku","Qiyam","Adhan"],
+a:0
 },
 
 {
- question:"امانت میں خیانت کرنا کیسا ہے؟",
- options:["جائز","مستحب","حرام","سنت"],
- answer:2
+u:"نماز کے آخر میں کیا پڑھ کر نماز ختم کی جاتی ہے؟",
+e:"What is recited to conclude the prayer?",
+ou:["سلام","اذان","اقامت","سحری"],
+oe:["Salam","Adhan","Iqamah","Suhoor"],
+a:0
 },
 
 {
- question:"وعدہ پورا کرنا کیسا عمل ہے؟",
- options:["اچھا عمل","برا عمل","حرام","ممنوع"],
- answer:0
+u:"قرآن کی تلاوت سے پہلے کیا پڑھنا مسنون ہے؟",
+e:"What is recommended before Quran recitation?",
+ou:["اعوذ باللہ","اذان","تلبیہ","قنوت"],
+oe:["A'udhu billah","Adhan","Talbiyah","Qunut"],
+a:0
 },
 
 {
- question:"صبر کا مطلب کیا ہے؟",
- options:["بے صبری","برداشت اور ثابت قدمی","غصہ","جلد بازی"],
- answer:1
+u:"رمضان میں لیلۃ القدر کس سے متعلق ہے؟",
+e:"What is Laylat al-Qadr associated with?",
+ou:["قرآن کے نزول","حج","قربانی","ہجرت"],
+oe:["The revelation of the Quran","Hajj","Sacrifice","Hijrah"],
+a:0
 },
 
 {
- question:"شکر کس کے لیے کرنا چاہیے؟",
- options:["صرف لوگوں کے لیے","اللہ تعالیٰ کے لیے","دنیا کے لیے","مال کے لیے"],
- answer:1
+u:"لیلۃ القدر کس مہینے میں ہوتی ہے؟",
+e:"In which month does Laylat al-Qadr occur?",
+ou:["رمضان","محرم","شوال","رجب"],
+oe:["Ramadan","Muharram","Shawwal","Rajab"],
+a:0
 },
 
 {
- question:"تکبر کا کیا حکم ہے؟",
- options:["پسندیدہ","ناپسندیدہ/مذموم","فرض","سنت"],
- answer:1
+u:"اعتکاف عموماً کہاں کیا جاتا ہے؟",
+e:"Where is i'tikaf generally performed?",
+ou:["مسجد","بازار","گھر کی چھت","میدان"],
+oe:["Mosque","Market","Rooftop","Field"],
+a:0
 },
 
 {
- question:"تواضع کا مطلب کیا ہے؟",
- options:["عاجزی","غرور","غصہ","لالچ"],
- answer:0
+u:"کعبہ کے گرد چکر لگانے کو کیا کہتے ہیں؟",
+e:"What is circling the Ka'bah called?",
+ou:["طواف","سعی","رمی","وقوف"],
+oe:["Tawaf","Sa'i","Ramy","Wuquf"],
+a:0
 },
 
 {
- question:"اسلام میں پڑوسی کے ساتھ کیسا سلوک کرنا چاہیے؟",
- options:["حسن سلوک","بدسلوکی","قطع تعلق","غیبت"],
- answer:0
+u:"صفا اور مروہ کے درمیان چلنے کو کیا کہتے ہیں؟",
+e:"What is walking between Safa and Marwah called?",
+ou:["سعی","طواف","رمی","وقوف"],
+oe:["Sa'i","Tawaf","Ramy","Wuquf"],
+a:0
 },
 
 {
- question:"مسلمان کو کس چیز سے بچنا چاہیے؟",
- options:["نیکی","سچائی","ظلم","صدقہ"],
- answer:2
+u:"عرفات میں ٹھہرنے کو کیا کہتے ہیں؟",
+e:"What is standing at Arafat called?",
+ou:["وقوفِ عرفہ","سعی","طواف","رمی"],
+oe:["Wuquf of Arafah","Sa'i","Tawaf","Ramy"],
+a:0
 },
 
 {
- question:"قرآن پڑھنے سے پہلے کیا کرنا چاہیے؟",
- options:["وضو کرنا","کھانا کھانا","سونا","سفر کرنا"],
- answer:0
+u:"قربانی کس عید سے متعلق ہے؟",
+e:"Which Eid is associated with animal sacrifice?",
+ou:["عید الفطر","عید الاضحی","جمعہ","عاشوراء"],
+oe:["Eid al-Fitr","Eid al-Adha","Friday","Ashura"],
+a:1
 },
 
 {
- question:"وضو میں چہرہ دھونا کیا ہے؟",
- options:["فرض","مکروہ","مستحب فقط","حرام"],
- answer:0
+u:"اسلام میں خاص ہفتہ وار دن کون سا ہے؟",
+e:"Which is the special weekly day in Islam?",
+ou:["جمعہ","پیر","بدھ","اتوار"],
+oe:["Friday","Monday","Wednesday","Sunday"],
+a:0
 },
 
 {
- question:"وضو کس چیز سے ٹوٹ جاتا ہے؟",
- options:["قرآن پڑھنے سے","سونے سے","صدقہ دینے سے","سلام کرنے سے"],
- answer:1
+u:"جمعہ کی نماز کس نماز کی جگہ ادا ہوتی ہے؟",
+e:"Jumu'ah prayer replaces which regular prayer?",
+ou:["فجر","ظہر","عصر","مغرب"],
+oe:["Fajr","Dhuhr","Asr","Maghrib"],
+a:1
 },
 
 {
- question:"تیمم کب کیا جا سکتا ہے؟",
- options:["پانی نہ ملنے یا استعمال پر عذر کی صورت میں","ہمیشہ","صرف سفر میں","صرف جمعہ کو"],
- answer:0
+u:"اسلام میں پڑوسی کے ساتھ کیا سلوک ہونا چاہیے؟",
+e:"How should a Muslim treat a neighbor?",
+ou:["حسنِ سلوک","بدسلوکی","نظرانداز","دھوکا"],
+oe:["Kindness","Badly","Ignore them","Deceive them"],
+a:0
 },
 
 {
- question:"نماز میں قرآن مجید کی تلاوت کہاں کی جاتی ہے؟",
- options:["قیام میں","صرف رکوع میں","صرف سجدے میں","صرف قعدہ میں"],
- answer:0
+u:"امانت کے بارے میں اسلام کیا سکھاتا ہے؟",
+e:"What does Islam teach about trusts?",
+ou:["امانت ادا کرنا","خیانت کرنا","چھپانا","ضائع کرنا"],
+oe:["Fulfill the trust","Betray it","Hide it","Waste it"],
+a:0
 },
 
 {
- question:"رکوع کے بعد کیا کیا جاتا ہے؟",
- options:["سجدہ","اذان","وضو","سلام"],
- answer:0
+u:"وعدہ پورا کرنا کیسا عمل ہے؟",
+e:"How is fulfilling a promise regarded?",
+ou:["اچھا عمل","برا عمل","حرام","غیر ضروری"],
+oe:["A good deed","A bad deed","Forbidden","Unnecessary"],
+a:0
 },
 
 {
- question:"دو سجدوں کے درمیان کیا کیا جاتا ہے؟",
- options:["قعدہ/جلسہ","اذان","اقامت","تلاوت"],
- answer:0
+u:"اسلام میں صبر کی کیا اہمیت ہے؟",
+e:"What is the importance of patience in Islam?",
+ou:["اہم نیکی","بری چیز","صرف تجارت","صرف سفر"],
+oe:["An important virtue","A bad thing","Only trade","Only travel"],
+a:0
 },
 
 {
- question:"نماز کے آخر میں سلام پھیرا جاتا ہے؟",
- options:["ہاں","نہیں","صرف فجر میں","صرف عشاء میں"],
- answer:0
+u:"شکر کس کے لیے کیا جاتا ہے؟",
+e:"To whom is gratitude ultimately due?",
+ou:["اللہ تعالیٰ","صرف لوگوں کو","صرف بادشاہ کو","کسی کو نہیں"],
+oe:["Allah","Only people","Only a king","No one"],
+a:0
 },
 
 {
- question:"نماز کے لیے قبلہ کس طرف ہے؟",
- options:["کعبہ شریف","مسجد اقصیٰ","مدینہ","طائف"],
- answer:0
+u:"دعا کیا ہے؟",
+e:"What is dua?",
+ou:["اللہ سے مانگنا","تجارت","سفر","کھیل"],
+oe:["Supplication to Allah","Trade","Travel","A game"],
+a:0
 },
 
 {
- question:"کعبہ شریف کی تعمیر میں حضرت ابراہیمؑ کے ساتھ کون تھے؟",
- options:["حضرت اسماعیلؑ","حضرت یوسفؑ","حضرت موسیٰؑ","حضرت عیسیٰؑ"],
- answer:0
+u:"توبہ کا مطلب کیا ہے؟",
+e:"What does tawbah mean?",
+ou:["اللہ کی طرف رجوع اور گناہ سے توبہ","سفر","تجارت","کھیل"],
+oe:["Turning to Allah and repenting from sin","Travel","Trade","A game"],
+a:0
 },
 
 {
- question:"حضرت ابراہیمؑ کے بیٹے کا نام کیا تھا جنہوں نے کعبہ کی تعمیر میں مدد کی؟",
- options:["حضرت اسحاقؑ","حضرت اسماعیلؑ","حضرت یعقوبؑ","حضرت یوسفؑ"],
- answer:1
+u:"استغفار کا مطلب کیا ہے؟",
+e:"What does istighfar mean?",
+ou:["اللہ سے مغفرت مانگنا","کھانا","سفر","تجارت"],
+oe:["Seeking Allah's forgiveness","Eating","Travel","Trade"],
+a:0
 },
 
 {
- question:"حضرت موسیٰؑ کے مقابلے میں جادوگر کس بادشاہ کے دور میں تھے؟",
- options:["نمرود","فرعون","قیصر","کسریٰ"],
- answer:1
+u:"سبحان اللہ کا مفہوم کیا ہے؟",
+e:"What does SubhanAllah express?",
+ou:["اللہ پاک ہے","اللہ سب سے بڑا ہے","تمام تعریف اللہ کے لیے ہے","اللہ سے معافی"],
+oe:["Allah is perfect","Allah is the Greatest","All praise is for Allah","Seeking forgiveness"],
+a:0
 },
 
 {
- question:"حضرت یوسفؑ کے والد کا نام کیا تھا؟",
- options:["حضرت یعقوبؑ","حضرت اسحاقؑ","حضرت ابراہیمؑ","حضرت موسیٰؑ"],
- answer:0
+u:"الحمدللہ کا مفہوم کیا ہے؟",
+e:"What does Alhamdulillah mean?",
+ou:["تمام تعریف اللہ کے لیے ہے","اللہ پاک ہے","اللہ سب سے بڑا ہے","اللہ سے معافی"],
+oe:["All praise is for Allah","Allah is perfect","Allah is the Greatest","Seeking forgiveness"],
+a:0
 },
 
 {
- question:"حضرت نوحؑ نے کس چیز کے ذریعے لوگوں کو دعوت دی؟",
- options:["صرف جنگ","اللہ کی عبادت کی دعوت","تجارت","بادشاہت"],
- answer:1
+u:"اللہ اکبر کا مفہوم کیا ہے؟",
+e:"What does Allahu Akbar mean?",
+ou:["اللہ سب سے بڑا ہے","اللہ پاک ہے","تمام تعریف اللہ کے لیے ہے","اللہ سے معافی"],
+oe:["Allah is the Greatest","Allah is perfect","All praise is for Allah","Seeking forgiveness"],
+a:0
 },
 
 {
- question:"حضرت آدمؑ کون تھے؟",
- options:["پہلے انسان اور نبی","دوسرے نبی","فرشتہ","بادشاہ"],
- answer:0
+u:"استغفراللہ کا مفہوم کیا ہے؟",
+e:"What does Astaghfirullah mean?",
+ou:["میں اللہ سے مغفرت مانگتا ہوں","اللہ سب سے بڑا ہے","اللہ پاک ہے","تمام تعریف اللہ کے لیے ہے"],
+oe:["I seek Allah's forgiveness","Allah is the Greatest","Allah is perfect","All praise is for Allah"],
+a:0
 },
 
 {
- question:"فرشتے کس چیز سے پیدا کیے گئے؟",
- options:["آگ","مٹی","نور","پانی"],
- answer:2
+u:"مسلمانوں کا سلام کیا ہے؟",
+e:"What is the greeting of Muslims?",
+ou:["السلام علیکم","صبح بخیر","خوش آمدید","شب بخیر"],
+oe:["Assalamu Alaikum","Good morning","Welcome","Good night"],
+a:0
 },
 
 {
- question:"جنات کس چیز سے پیدا کیے گئے؟",
- options:["نور","آگ","مٹی","پانی"],
- answer:1
+u:"اسلام میں علم حاصل کرنا کیسا عمل ہے؟",
+e:"How is seeking beneficial knowledge regarded in Islam?",
+ou:["باعثِ فضیلت","برا عمل","حرام","صرف تجارت"],
+oe:["A virtuous pursuit","A bad deed","Forbidden","Only trade"],
+a:0
 },
 
 {
- question:"انسان کو کس چیز سے پیدا کیا گیا؟",
- options:["مٹی","نور","آگ","ہوا"],
- answer:0
+u:"قرآن مجید مسلمانوں کے لیے کیا ہے؟",
+e:"What is the Quran for Muslims?",
+ou:["ہدایت کی کتاب","صرف تاریخ","صرف شاعری","صرف کہانی"],
+oe:["A book of guidance","Only history","Only poetry","Only stories"],
+a:0
 },
 
 {
- question:"قیامت کے دن اعمال کا حساب ہوگا؟",
- options:["ہاں","نہیں","صرف انبیاء کا","صرف فرشتوں کا"],
- answer:0
+u:"سنت سے کیا مراد ہے؟",
+e:"What does Sunnah refer to?",
+ou:["نبی ﷺ کے طریقے اور تعلیمات","صرف تجارت","صرف سفر","صرف کھانا"],
+oe:["The Prophet's way and teachings","Only trade","Only travel","Only food"],
+a:0
 },
 
 {
- question:"جنت کس کے لیے تیار کی گئی ہے؟",
- options:["ایمان والوں کے لیے","صرف بادشاہوں کے لیے","صرف فرشتوں کے لیے","صرف تاجروں کے لیے"],
- answer:0
-},
-
-{
- question:"جہنم سے بچنے کے لیے کیا ضروری ہے؟",
- options:["ایمان اور نیک اعمال","صرف مال","صرف شہرت","صرف طاقت"],
- answer:0
-},
-
-{
- question:"اللہ تعالیٰ کتنے ہیں؟",
- options:["ایک","دو","تین","چار"],
- answer:0
-},
-
-{
- question:"توحید کا مطلب کیا ہے؟",
- options:["اللہ کو ایک ماننا","بہت سے معبود ماننا","صرف دنیا سے محبت","سفر کرنا"],
- answer:0
-},
-
-{
- question:"شرک کا مطلب کیا ہے؟",
- options:["اللہ کے ساتھ کسی کو شریک کرنا","صدقہ دینا","نماز پڑھنا","روزہ رکھنا"],
- answer:0
-},
-
-{
- question:"دعا کس سے مانگنی چاہیے؟",
- options:["اللہ تعالیٰ سے","بتوں سے","ستاروں سے","صرف انسانوں سے"],
- answer:0
-},
-
-{
- question:"نبی کریم ﷺ آخری نبی ہیں؟",
- options:["جی ہاں","نہیں","معلوم نہیں","صرف عرب کے نبی"],
- answer:0
-},
-
-{
- question:"نبی کریم ﷺ کو خاتم النبیین کہا گیا ہے؟",
- options:["جی ہاں","نہیں","صرف صحابی","صرف فرشتہ"],
- answer:0
-},
-
-{
- question:"درود شریف کس پر بھیجا جاتا ہے؟",
- options:["نبی کریم ﷺ پر","صرف صحابہ پر","صرف فرشتوں پر","صرف علماء پر"],
- answer:0
-},
-
-{
- question:"اسلام میں نیکی کا بنیادی مقصد کیا ہے؟",
- options:["اللہ کی رضا","شہرت","دولت","مقبولیت"],
- answer:0
-},
-
-{
- question:"قرآن مجید مسلمانوں کے لیے کیا ہے؟",
- options:["ہدایت کی کتاب","صرف تاریخ کی کتاب","صرف شاعری","صرف قصے"],
- answer:0
-},
-
-{
- question:"سورۃ الاخلاص میں بنیادی طور پر کس عقیدے کو بیان کیا گیا ہے؟",
- options:["توحید","تجارت","سفر","زراعت"],
- answer:0
-},
-
-{
- question:"سورۃ الفاتحہ نماز میں پڑھی جاتی ہے؟",
- options:["جی ہاں","نہیں","صرف عید میں","صرف جمعہ میں"],
- answer:0
-},
-
-{
- question:"قرآن مجید کی آخری سورت کون سی ہے؟",
- options:["الفلق","الناس","الکوثر","الاخلاص"],
- answer:1
-},
-
-{
- question:"قرآن مجید کی آخری پارہ کون سا ہے؟",
- options:["28","29","30","27"],
- answer:2
-},
-
-{
- question:"رمضان میں ایک خاص رات ہزار مہینوں سے بہتر ہے، اس کا نام کیا ہے؟",
- options:["شب برات","لیلۃ القدر","شب معراج","شب عاشورہ"],
- answer:1
-},
-
-{
- question:"لیلۃ القدر کس مہینے میں آتی ہے؟",
- options:["رمضان","شوال","محرم","رجب"],
- answer:0
-},
-
-{
- question:"اسلامی سال کا پہلا مہینہ کون سا ہے؟",
- options:["رمضان","محرم","شوال","صفر"],
- answer:1
-},
-
-{
- question:"محرم کی دسویں تاریخ کو کیا کہا جاتا ہے؟",
- options:["یوم عرفہ","عاشورہ","لیلۃ القدر","عید"],
- answer:1
-},
-
-{
- question:"اسلامی عبادات میں نماز کی اہمیت کیا ہے؟",
- options:["بہت اہم فرض عبادت","صرف نفل","صرف رسم","صرف سفر کی عبادت"],
- answer:0
-},
-
-{
- question:"نبی کریم ﷺ نے مسلمانوں کو کس چیز کی تعلیم دی؟",
- options:["اللہ کی عبادت اور اچھے اخلاق","صرف تجارت","صرف دنیاوی زندگی","صرف جنگ"],
- answer:0
+u:"حدیث کیا ہے؟",
+e:"What is a hadith?",
+ou:["نبی ﷺ کے قول، فعل یا تقریر کی روایت","صرف شعر","صرف تاریخ","صرف تجارت"],
+oe:["A report of the Prophet's words, actions, or approvals","Only poetry","Only history","Only trade"],
+a:0
 }
 
 ];
 
-/* =========================================
+/* =========================
    QUIZ SYSTEM
-========================================= */
+========================= */
 
-let currentQuestion = 0;
+let lang = "ur";
+let index = 0;
 let score = 0;
-let selected = null;
 let answered = false;
 
-const questionNumber =
-  document.getElementById("questionNumber");
+function render() {
 
-const scoreTop =
-  document.getElementById("scoreTop");
+    if (index >= questions.length) {
+        showResult();
+        return;
+    }
 
-const question =
-  document.getElementById("question");
+    const q = questions[index];
 
-const optionsBox =
-  document.getElementById("options");
+    document.getElementById("qnum").textContent =
+        (lang === "ur" ? "سوال " : "Question ") +
+        (index + 1) + " / " + questions.length;
 
-const nextBtn =
-  document.getElementById("nextBtn");
+    document.getElementById("score").textContent =
+        (lang === "ur" ? "اسکور: " : "Score: ") + score;
 
-const backBtn =
-  document.getElementById("backBtn");
+    document.getElementById("question").textContent =
+        lang === "ur" ? q.u : q.e;
 
-const quizBox =
-  document.getElementById("quizBox");
+    document.getElementById("next").textContent =
+        lang === "ur" ? "اگلا سوال" : "Next Question";
 
-const result =
-  document.getElementById("result");
+    document.getElementById("next").disabled = true;
 
-const finalScore =
-  document.getElementById("finalScore");
+    answered = false;
 
-const resultMessage =
-  document.getElementById("resultMessage");
+    const options =
+        lang === "ur" ? q.ou : q.oe;
 
+    const box = document.getElementById("options");
 
-/* سوال دکھائیں */
+    box.innerHTML = "";
 
-function showQuestion(){
+    options.forEach((text, i) => {
 
-  selected = null;
-  answered = false;
+        const button = document.createElement("button");
 
-  const q = questions[currentQuestion];
+        button.className = "option";
 
-  questionNumber.innerText =
-    "سوال " + (currentQuestion + 1) +
-    " / " + questions.length;
+        button.textContent = text;
 
-  scoreTop.innerText =
-    "اسکور: " + score;
+        button.onclick = function() {
+            chooseAnswer(i, button);
+        };
 
-  question.innerText = q.question;
-
-  optionsBox.innerHTML = "";
-
-  q.options.forEach((option,index)=>{
-
-    const btn =
-      document.createElement("button");
-
-    btn.className = "option";
-
-    btn.innerText = option;
-
-    btn.onclick = function(){
-      selectOption(index,btn);
-    };
-
-    optionsBox.appendChild(btn);
-
-  });
-
-  backBtn.disabled =
-    currentQuestion === 0;
-
-  if(currentQuestion === questions.length - 1){
-    nextBtn.innerText = "نتیجہ دیکھیں";
-  }else{
-    nextBtn.innerText = "اگلا";
-  }
-}
-
-
-/* جواب منتخب کریں */
-
-function selectOption(index,button){
-
-  if(answered) return;
-
-  selected = index;
-
-  document
-    .querySelectorAll(".option")
-    .forEach(btn=>{
-      btn.classList.remove("selected");
+        box.appendChild(button);
     });
-
-  button.classList.add("selected");
-
 }
 
 
-/* اگلا سوال */
+function chooseAnswer(selected, button) {
 
-function nextQuestion(){
-
-  if(selected === null){
-
-    alert("براہ کرم پہلے ایک جواب منتخب کریں۔");
-
-    return;
-  }
-
-  if(!answered){
+    if (answered) return;
 
     answered = true;
 
-    const correct =
-      questions[currentQuestion].answer;
+    const q = questions[index];
 
-    const allOptions =
-      document.querySelectorAll(".option");
+    const buttons =
+        document.querySelectorAll(".option");
 
-    allOptions[correct]
-      .classList.add("correct");
+    buttons.forEach((b, i) => {
 
-    if(selected === correct){
+        if (i === q.a) {
+            b.classList.add("correct");
+        }
 
-      score++;
+    });
 
-    }else{
+    if (selected === q.a) {
 
-      allOptions[selected]
-        .classList.add("wrong");
+        score++;
+
+    } else {
+
+        button.classList.add("wrong");
 
     }
 
-    scoreTop.innerText =
-      "اسکور: " + score;
+    document.getElementById("score").textContent =
+        (lang === "ur" ? "اسکور: " : "Score: ") + score;
 
-    allOptions.forEach(btn=>{
-      btn.style.pointerEvents = "none";
-    });
-
-    setTimeout(()=>{
-
-      if(currentQuestion <
-         questions.length - 1){
-
-        currentQuestion++;
-
-        showQuestion();
-
-      }else{
-
-        showResult();
-
-      }
-
-    },700);
-
-  }
-
+    document.getElementById("next").disabled = false;
 }
 
 
-/* پچھلا سوال   
+function nextQuestion() {
+
+    if (!answered) return;
+
+    index++;
+
+    render();
+}
+
+
+function toggleLang() {
+
+    lang = lang === "ur" ? "en" : "ur";
+
+    document.documentElement.lang =
+        lang === "ur" ? "ur" : "en";
+
+    document.documentElement.dir =
+        lang === "ur" ? "rtl" : "ltr";
+
+    document.getElementById("langBtn").textContent =
+        lang === "ur" ? "English" : "اردو";
+
+    document.getElementById("title").textContent =
+        lang === "ur"
+        ? "🕌 اسلامی Quiz"
+        : "🕌 Islamic Quiz";
+
+    render();
+}
+
+
+function showResult() {
+
+    document.getElementById("quizCard").innerHTML = `
+
+        <div class="result">
+
+            <div style="font-size:50px">
+                🎉
+            </div>
+
+            <div>
+                ${
+                    lang === "ur"
+                    ? "Quiz مکمل ہوگیا!"
+                    : "Quiz Completed!"
+                }
+            </div>
+
+            <div>
+                ${
+                    lang === "ur"
+                    ? "آپ کا اسکور"
+                    : "Your Score"
+                }:
+
+                <b>
+                    ${score} / ${questions.length}
+                </b>
+
+            </div>
+
+            <button id="restart"
+                onclick="restartQuiz()">
+
+                ${
+                    lang === "ur"
+                    ? "دوبارہ شروع کریں"
+                    : "Restart Quiz"
+                }
+
+            </button>
+
+        </div>
+    `;
+}
+
+
+function restartQuiz() {
+
+    index = 0;
+
+    score = 0;
+
+    answered = false;
+
+    render();
+}
+
+
+/* Quiz شروع */
+
+render();
+
+</script>
+
+</body>
+</html>
