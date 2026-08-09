@@ -1,1 +1,620 @@
 
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اسلامی Quiz | DEENIYAT 2.0</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f4f8f3;
+    color:#222;
+    font-family:
+    "Noto Nastaliq Urdu",
+    "Jameel Noori Nastaleeq",
+    serif;
+}
+
+.header{
+    background:#086b3c;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+.header h1{
+    margin:0;
+    color:#ffd800;
+    font-size:32px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:20px 15px;
+}
+
+.quiz-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    margin-top:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.question-number{
+    color:#769b20;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.question{
+    font-size:25px;
+    font-weight:bold;
+    margin:15px 0 20px;
+}
+
+.option{
+    width:100%;
+    display:block;
+    border:2px solid #ddd;
+    background:#fff;
+    color:#222;
+    border-radius:12px;
+    padding:12px 15px;
+    margin:10px 0;
+    text-align:right;
+    font-size:19px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.option:hover{
+    border-color:#769b20;
+}
+
+.option.correct{
+    background:#dff4df;
+    border-color:#218838;
+}
+
+.option.wrong{
+    background:#ffe0e0;
+    border-color:#dc3545;
+}
+
+.reference{
+    display:none;
+    background:#f4f8f3;
+    border-right:5px solid #769b20;
+    border-radius:10px;
+    padding:12px;
+    margin-top:18px;
+    font-size:17px;
+}
+
+.next-btn{
+    display:none;
+    margin:20px auto 0;
+    border:0;
+    border-radius:10px;
+    padding:10px 25px;
+    background:#086b3c;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.score{
+    text-align:center;
+    font-size:25px;
+    color:#086b3c;
+    font-weight:bold;
+}
+
+.restart{
+    display:none;
+    margin:15px auto;
+    border:0;
+    border-radius:10px;
+    padding:10px 25px;
+    background:#769b20;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+footer{
+    margin-top:40px;
+    background:#086b3c;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<h1>📝 اسلامی Quiz</h1>
+
+<p>DEENIYAT 2.0</p>
+
+</header>
+
+
+<main class="container">
+
+<div class="quiz-card">
+
+<div class="question-number" id="questionNumber">
+سوال 1 / 100
+</div>
+
+<div class="question" id="question">
+سوال یہاں آئے گا
+</div>
+
+<div id="options"></div>
+
+<div class="reference" id="reference"></div>
+
+<button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+اگلا سوال
+</button>
+
+<div class="score" id="score"></div>
+
+<button class="restart" id="restartBtn" onclick="restartQuiz()">
+دوبارہ شروع کریں
+</button>
+
+</div>
+
+</main>
+
+
+<footer>
+
+© 2026 DEENIYAT 2.0
+
+</footer>
+
+
+<script>
+
+/* =========================
+   100 اسلامی Quiz سوالات
+========================= */
+
+const questions = [
+
+{
+question:"اسلام کے کتنے ارکان ہیں؟",
+options:[
+"3",
+"4",
+"5",
+"6"
+],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"اسلام کا پہلا رکن کیا ہے؟",
+options:[
+"نماز",
+"روزہ",
+"شہادتین",
+"زکوٰۃ"
+],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"دن میں کتنی فرض نمازیں ہیں؟",
+options:[
+"3",
+"4",
+"5",
+"6"
+],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 46، صحیح مسلم: 11"
+},
+
+{
+question:"رمضان کے روزے کس مہینے میں رکھے جاتے ہیں؟",
+options:[
+"محرم",
+"رمضان",
+"شوال",
+"ذوالحجہ"
+],
+answer:1,
+reference:"حوالہ: سورۃ البقرۃ: 185"
+},
+
+{
+question:"قرآن مجید کس نبی ﷺ پر نازل ہوا؟",
+options:[
+"حضرت موسیٰ علیہ السلام",
+"حضرت عیسیٰ علیہ السلام",
+"حضرت محمد ﷺ",
+"حضرت ابراہیم علیہ السلام"
+],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 97"
+},
+
+{
+question:"قرآن مجید کی پہلی سورت کون سی ہے؟",
+options:[
+"البقرۃ",
+"الفاتحہ",
+"الناس",
+"الاخلاص"
+],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 4474"
+},
+
+{
+question:"قرآن مجید میں کتنی سورتیں ہیں؟",
+options:[
+"110",
+"112",
+"114",
+"116"
+],
+answer:2,
+reference:"حوالہ: صحیح مسلم: 805"
+},
+
+{
+question:"نماز کی طرف بلانے کو کیا کہتے ہیں؟",
+options:[
+"اقامت",
+"اذان",
+"خطاب",
+"تلاوت"
+],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 604، صحیح مسلم: 377"
+},
+
+{
+question:"زکوٰۃ اسلام کا کون سا رکن ہے؟",
+options:[
+"پہلا",
+"دوسرا",
+"تیسرا",
+"چوتھا"
+],
+answer:2,
+reference:"حوالہ: صحیح بخاری: 8، صحیح مسلم: 16"
+},
+
+{
+question:"حج کس اسلامی مہینے میں ادا کیا جاتا ہے؟",
+options:[
+"رمضان",
+"شوال",
+"ذوالحجہ",
+"محرم"
+],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 197"
+},
+
+{
+question:"اللہ تعالیٰ نے مسلمانوں کے لیے کس دین کو پسند فرمایا؟",
+options:[
+"یہودیت",
+"عیسائیت",
+"اسلام",
+"کوئی نہیں"
+],
+answer:2,
+reference:"حوالہ: سورۃ آل عمران: 19"
+},
+
+{
+question:"قرآن مجید کی سب سے بڑی سورت کون سی ہے؟",
+options:[
+"الفاتحہ",
+"البقرۃ",
+"آل عمران",
+"النساء"
+],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 804"
+},
+
+{
+question:"قرآن مجید کی سب سے چھوٹی سورت کون سی ہے؟",
+options:[
+"الکوثر",
+"الفلق",
+"الناس",
+"الاخلاص"
+],
+answer:0,
+reference:"حوالہ: سورۃ الکوثر: 1-3"
+},
+
+{
+question:"نماز میں قبلہ کس طرف ہے؟",
+options:[
+"مسجد نبوی",
+"بیت المقدس",
+"کعبہ",
+"مکہ کا پہاڑ"
+],
+answer:2,
+reference:"حوالہ: سورۃ البقرۃ: 144"
+},
+
+{
+question:"کعبہ کس شہر میں ہے؟",
+options:[
+"مدینہ",
+"مکہ",
+"طائف",
+"جدہ"
+],
+answer:1,
+reference:"حوالہ: سورۃ آل عمران: 96"
+},
+
+{
+question:"ہجری سال کا پہلا مہینہ کون سا ہے؟",
+options:[
+"رمضان",
+"محرم",
+"شوال",
+"صفر"
+],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 3197، صحیح مسلم: 1679"
+},
+
+{
+question:"رمضان کے بعد کون سا مہینہ آتا ہے؟",
+options:[
+"شعبان",
+"شوال",
+"ذوالقعدہ",
+"محرم"
+],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 1890، صحیح مسلم: 1081"
+},
+
+{
+question:"شب قدر کس مہینے میں آتی ہے؟",
+options:[
+"محرم",
+"رجب",
+"شعبان",
+"رمضان"
+],
+answer:3,
+reference:"حوالہ: سورۃ القدر: 1-5"
+},
+
+{
+question:"وضو کے بغیر کون سی عبادت ادا نہیں کی جا سکتی؟",
+options:[
+"صدقہ",
+"نماز",
+"روزہ",
+"زکوٰۃ"
+],
+answer:1,
+reference:"حوالہ: صحیح مسلم: 224"
+},
+
+{
+question:"نماز کا آغاز کس چیز سے ہوتا ہے؟",
+options:[
+"سلام",
+"تکبیر تحریمہ",
+"تشہد",
+"سجدہ"
+],
+answer:1,
+reference:"حوالہ: صحیح بخاری: 757، صحیح مسلم: 397"
+}
+
+];
+
+
+/* باقی سوالات بعد میں اسی format میں شامل ہوں گے */
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+const questionNumber =
+document.getElementById("questionNumber");
+
+const question =
+document.getElementById("question");
+
+const options =
+document.getElementById("options");
+
+const reference =
+document.getElementById("reference");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+const scoreBox =
+document.getElementById("score");
+
+const restartBtn =
+document.getElementById("restartBtn");
+
+
+function loadQuestion(){
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    questionNumber.innerText =
+    "سوال " + (currentQuestion + 1) +
+    " / " + questions.length;
+
+    question.innerText = q.question;
+
+    options.innerHTML = "";
+
+    reference.style.display = "none";
+
+    reference.innerText = q.reference;
+
+    nextBtn.style.display = "none";
+
+    q.options.forEach(function(optionText,index){
+
+        const button =
+        document.createElement("button");
+
+        button.className = "option";
+
+        button.innerText = optionText;
+
+        button.onclick = function(){
+
+            selectAnswer(button,index);
+
+        };
+
+        options.appendChild(button);
+
+    });
+
+}
+
+
+function selectAnswer(button,index){
+
+    if(answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    const allOptions =
+    document.querySelectorAll(".option");
+
+    allOptions.forEach(function(btn,i){
+
+        if(i === q.answer){
+
+            btn.classList.add("correct");
+
+        }
+
+    });
+
+
+    if(index === q.answer){
+
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+    }
+
+
+    reference.style.display = "block";
+
+    nextBtn.style.display = "block";
+
+}
+
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion < questions.length){
+
+        loadQuestion();
+
+    }else{
+
+        showResult();
+
+    }
+
+}
+
+
+function showResult(){
+
+    questionNumber.innerText = "";
+
+    question.innerText =
+    "🎉 Quiz مکمل ہوگیا!";
+
+    options.innerHTML = "";
+
+    reference.style.display = "none";
+
+    nextBtn.style.display = "none";
+
+    scoreBox.innerText =
+    "آپ کا اسکور: " +
+    score +
+    " / " +
+    questions.length;
+
+    restartBtn.style.display = "block";
+
+}
+
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    scoreBox.innerText = "";
+
+    restartBtn.style.display = "none";
+
+    loadQuestion();
+
+}
+
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
