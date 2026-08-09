@@ -8,6 +8,20 @@
 <title>اسلامی Quiz | DEENIYAT 2.0</title>
 
 <style>
+    q.options.forEach(function(optionText, index) {
+
+    const button = document.createElement("button");
+
+    button.className = "option";
+
+    button.innerText = optionText;
+
+    button.onclick = function() {
+        selectAnswer(button, index);
+    };
+
+    options.appendChild(button);
+});
 
 *{
     box-sizing:border-box;
