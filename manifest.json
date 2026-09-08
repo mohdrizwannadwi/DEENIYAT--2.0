@@ -1,0 +1,11 @@
+{
+  "name": "DEENIYAT 2.0",
+  "short_name": "DEENIYAT",
+  "description": "اسلامی تعلیمات، قرآن، احادیث، دعائیں اور نماز",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b6b4f",
+  "orientation": "portrait",
+  "icons": []
+}
